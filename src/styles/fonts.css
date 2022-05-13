@@ -140,6 +140,7 @@
 }
 
 * {
-  font-family: 'Poppins';
+  font-family: 'Poppins', ui-monospace, SFMono-Regular, Consolas,
+    'Liberation Mono', Menlo, monospace;
   font-style: normal;
 }
