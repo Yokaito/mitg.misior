@@ -1,9 +1,110 @@
+/* Roboto */
+@font-face {
+  font-weight: 300;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-display: fallback;
+  src: local(''), url('./fonts/roboto/Roboto-Light.woff2') format('woff2');
+}
+
+@font-face {
+  font-weight: 400;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-display: fallback;
+  src: local(''), url('./fonts/roboto/Roboto-Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-weight: 500;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-display: fallback;
+  src: local(''), url('./fonts/roboto/Roboto-Medium.woff2') format('woff2');
+}
+
+@font-face {
+  font-weight: 700;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-display: fallback;
+  src: local(''), url('./fonts/roboto/Roboto-Bold.woff2') format('woff2');
+}
+
+/* Martel */
+@font-face {
+  font-weight: 200;
+  font-family: 'Martel';
+  font-style: normal;
+  font-display: fallback;
+  src: local(''), url('./fonts/martel/Martel-ExtraLight.woff2') format('woff2');
+}
+
+@font-face {
+  font-weight: 300;
+  font-family: 'Martel';
+  font-style: normal;
+  font-display: fallback;
+  src: local(''), url('./fonts/martel/Martel-Light.woff2') format('woff2');
+}
+
+@font-face {
+  font-weight: 400;
+  font-family: 'Martel';
+  font-style: normal;
+  font-display: fallback;
+  src: local(''), url('./fonts/martel/Martel-Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-weight: 600;
+  font-family: 'Martel';
+  font-style: normal;
+  font-display: fallback;
+  src: local(''), url('./fonts/martel/Martel-SemiBold.woff2') format('woff2');
+}
+
+@font-face {
+  font-weight: 700;
+  font-family: 'Martel';
+  font-style: normal;
+  font-display: fallback;
+  src: local(''), url('./fonts/martel/Martel-Bold.woff2') format('woff2');
+}
+
+@font-face {
+  font-weight: 800;
+  font-family: 'Martel';
+  font-style: normal;
+  font-display: fallback;
+  src: local(''), url('./fonts/martel/Martel-ExtraBold.woff2') format('woff2');
+}
+
+@font-face {
+  font-weight: 900;
+  font-family: 'Martel';
+  font-style: normal;
+  font-display: fallback;
+  src: local(''), url('./fonts/martel/Martel-Black.woff2') format('woff2');
+}
+
+/* Fondamento */
+@font-face {
+  font-weight: 400;
+  font-family: 'Fondamento';
+  font-style: normal;
+  font-display: fallback;
+  src: local(''),
+    url('./fonts/fondamento/Fondamento-Regular.woff2') format('woff2');
+}
+
+/* Poppins */
 @font-face {
   font-weight: 300;
   font-family: 'Poppins';
   font-style: normal;
   font-display: fallback;
-  src: local(''), url('./fonts/Poppins-Light.woff2') format('woff2');
+  src: local(''), url('./fonts/poppins/Poppins-Light.woff2') format('woff2');
 }
 
 @font-face {
@@ -11,7 +112,7 @@
   font-family: 'Poppins';
   font-style: normal;
   font-display: fallback;
-  src: local(''), url('./fonts/Poppins-Regular.woff2') format('woff2');
+  src: local(''), url('./fonts/poppins/Poppins-Regular.woff2') format('woff2');
 }
 
 @font-face {
@@ -19,7 +120,7 @@
   font-family: 'Poppins';
   font-style: normal;
   font-display: fallback;
-  src: local(''), url('./fonts/Poppins-Medium.woff2') format('woff2');
+  src: local(''), url('./fonts/poppins/Poppins-Medium.woff2') format('woff2');
 }
 
 @font-face {
@@ -27,7 +128,7 @@
   font-family: 'Poppins';
   font-style: normal;
   font-display: fallback;
-  src: local(''), url('./fonts/Poppins-SemiBold.woff2') format('woff2');
+  src: local(''), url('./fonts/poppins/Poppins-SemiBold.woff2') format('woff2');
 }
 
 @font-face {
@@ -35,7 +136,7 @@
   font-family: 'Poppins';
   font-style: normal;
   font-display: fallback;
-  src: local(''), url('./fonts/Poppins-Bold.woff2') format('woff2');
+  src: local(''), url('./fonts/poppins/Poppins-Bold.woff2') format('woff2');
 }
 
 * {

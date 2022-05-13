@@ -88,8 +88,6 @@ code,
 kbd,
 samp,
 pre {
-  font-family: ui-monospace, SFMono-Regular, Consolas, 'Liberation Mono', Menlo,
-    monospace; /* 1 */
   font-size: 1em; /* 2 */
 }
 
@@ -151,7 +149,6 @@ input,
 optgroup,
 select,
 textarea {
-  font-family: inherit; /* 1 */
   font-size: 100%; /* 1 */
   line-height: 1.15; /* 1 */
   margin: 0; /* 2 */
