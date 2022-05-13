@@ -17,6 +17,10 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
+    "migrate": "prisma migrate dev",
+    "prisma-reset": "prisma migrate reset",
+    "pscalesetup": "pscale connect mipoker initial-setup --port 3309",
+    "pscaleshadow": "pscale connect mipoker shadow --port 3310",
     "type-check": "tsc",
     "lint": "eslint --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\"",
     "format": "prettier --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\" --write",
@@ -30,6 +34,7 @@
     ]
   },
   "dependencies": {
+    "@prisma/client": "3.14.0",
     "@reduxjs/toolkit": "1.8.1",
     "@stitches/react": "1.2.8",
     "joi": "17.6.0",
@@ -58,6 +63,7 @@
     "husky": "8.0.1",
     "lint-staged": "12.4.1",
     "prettier": "2.6.2",
+    "prisma": "3.14.0",
     "typescript": "4.6.4"
   },
   "config": {
