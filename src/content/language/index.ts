@@ -1,3 +1,6 @@
+import ptBr from './pt-br';
+import enUs from './en-us';
+
 export type LangStringProps = {
   [key: string]: LangOptionsProps;
 };
@@ -7,10 +10,6 @@ type LangOptionsProps = {
 };
 
 export const LangStrings: LangStringProps = {
-  enUs: {
-    'home/template': `Home Page`,
-  },
-  ptBr: {
-    'home/template': `Pagina Inicial`,
-  },
+  enUs: enUs,
+  ptBr: ptBr,
 };
