@@ -1,4 +1,4 @@
-import { badRequest, noContent, serverError } from '../helpers';
+import { badRequest, ok, serverError } from '../helpers';
 import { Controller, HttpResponse } from '../protocols';
 import Joi from 'joi';
 
@@ -11,9 +11,7 @@ export class StatusController implements Controller {
         return badRequest(error);
       }
 
-      console.log(value);
-
-      return noContent();
+      return ok(value);
     } catch (error: any) {
       return serverError(error);
     }
