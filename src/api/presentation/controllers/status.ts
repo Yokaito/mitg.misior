@@ -11,7 +11,7 @@ export class StatusController implements Controller {
         return badRequest(error);
       }
 
-      return ok(value);
+      return ok({ value, ok: `status:ok` });
     } catch (error: any) {
       return serverError(error);
     }
@@ -24,5 +24,5 @@ export namespace StatusController {
 }
 
 const StatusControllerSchema = Joi.object({
-  statusId: Joi.number().required(),
+  statusId: Joi.number(),
 });
