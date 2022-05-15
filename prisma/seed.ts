@@ -1,34 +1,29 @@
-import { PrismaClient } from '@prisma/client';
+import { PrismaClient, server_config } from '@prisma/client';
+import misior from '../misior.config';
 
 const prisma = new PrismaClient();
 
-const serverConfig = [
-  {
-    config: `db_version`,
-    value: `18`,
-  },
-  {
-    config: `motd_hash`,
-    value: ``,
-  },
-  {
-    config: `motd_num`,
-    value: `0`,
-  },
-  {
-    config: `players_record`,
-    value: `0`,
-  },
-];
-
 export const main = async (): Promise<void> => {
-  const configs = await prisma.server_config.findMany();
-  console.log(configs);
-  if (configs.length === 0) {
+  const localConfigs: Array<server_config> = [];
+  const dbConfigs = await prisma.server_config.findMany();
+
+  Object.keys(misior).map((config) => {
+    localConfigs.push({ config: config, value: misior[config] });
+  });
+
+  if (dbConfigs.length === 0) {
     await prisma.server_config.createMany({
-      data: serverConfig,
+      data: localConfigs,
     });
   }
+
+  if (JSON.stringify(localConfigs) !== JSON.stringify(dbConfigs)) {
+    await prisma.server_config.deleteMany();
+    await prisma.server_config.createMany({
+      data: localConfigs,
+    });
+  }
+
   return;
 };
 

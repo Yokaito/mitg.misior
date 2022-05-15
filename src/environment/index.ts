@@ -3,7 +3,7 @@ const env = {
     url: process.env.NEXT_PUBLIC_API_URL || `http://localhost:3000`,
   },
   nextAuth: {
-    secret: process.env.NEXT_PUBLIC_NEXT_AUTH_SECRET || `guilherme`,
+    secret: process.env.NEXTAUTH_SECRET || `guilherme`,
   },
 };
 
