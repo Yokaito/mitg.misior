@@ -4,7 +4,7 @@ import Head from 'next/head';
 import { signIn } from 'next-auth/react';
 import { useFetch } from '@/lib/swr';
 import { useEffect } from 'react';
-import Corner from '@/components/ui/Corner';
+import Box from '@/components/ui/Box';
 
 export const Home: Page = () => {
   const { t, changeLanguage, locale } = useTranslation();
@@ -36,7 +36,9 @@ export const Home: Page = () => {
       <div>
         <button onClick={() => signIn(`credentials`)}>Login Credentials</button>
       </div>
-      <Corner></Corner>
+      <Box title="test">
+        <p>Guilherme Fontes</p>
+      </Box>
     </div>
   );
 };

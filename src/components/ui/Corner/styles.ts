@@ -17,4 +17,7 @@ export const CornerWrapper = styled.div<CornerProps>`
   z-index: 9;
   position: absolute;
   background-repeat: no-repeat;
+  right: ${({ right }) => (right ? `-5px` : `null`)};
+  top: ${({ bottom }) => (bottom ? `-9px` : `-4px`)};
+  left: ${({ right }) => (right ? `null` : `-5px`)};
 `;
