@@ -7,6 +7,9 @@ const nextConfig = {
   /* config options here */
   reactStrictMode: false,
   optimizeFonts: true,
+  compiler: {
+    styledComponents: true,
+  },
 };
 
 module.exports = nextConfig;
