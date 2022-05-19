@@ -36,7 +36,7 @@ export const Home: Page = () => {
       <div>
         <button onClick={() => signIn(`credentials`)}>Login Credentials</button>
       </div>
-      <Box title="test">
+      <Box title="Newsletter">
         <p>Guilherme Fontes</p>
       </Box>
     </div>
