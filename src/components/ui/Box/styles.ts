@@ -14,8 +14,8 @@ export const BoxWrapper = styled.section`
   height: max-content;
   display: flex;
   flex-direction: column;
-  border-right: 2px solid #3a3738;
-  border-left: 2px solid #3a3738;
+  border-right: 2px solid ${({ theme }) => theme.borders.primary};
+  border-left: 2px solid ${({ theme }) => theme.borders.primary};
   background-color: #debb9d;
   z-index: 0;
 `;
@@ -23,8 +23,8 @@ export const BoxWrapper = styled.section`
 type ContentProps = Pick<BoxProps, 'padding'>;
 
 export const BoxContentWrapper = styled.div<ContentProps>`
-  border: 1px solid #793d03;
-  background-color: #fff1da;
+  border: 1px solid ${({ theme }) => theme.borders.secondary};
+  background-color: ${({ theme }) => theme.backgrounds.primary};
   padding: ${({ padding }) =>
     padding === `minimal` ? `.3rem` : padding === `normal` ? `.6rem` : `.9rem`};
   margin: 0.4rem 0.25rem 0.25rem;
