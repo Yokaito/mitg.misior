@@ -19,7 +19,7 @@ export const Box: FC<BoxProps> = ({
     <S.BoxWrapper>
       <Border />
       <S.BoxHeader typeBackground={typeBackground}>
-        <S.Title>{title}</S.Title>
+        <S.BoxTitle>{title}</S.BoxTitle>
       </S.BoxHeader>
       <S.BoxContentWrapper padding={padding}>{children}</S.BoxContentWrapper>
       <Border bottom />

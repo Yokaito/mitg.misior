@@ -8,9 +8,9 @@ import BackgroundBrown from '@/assets/images/box/title-background-brown.gif';
 import BackgroundRed from '@/assets/images/box/title-background-red.gif';
 
 import { BoxProps } from '.';
-import { Fondamento } from '../shared/Typography';
+import { FondamentoTitle } from '../shared/Typography';
 
-export const BoxWrapper = styled.div`
+export const BoxWrapper = styled.section`
   height: max-content;
   display: flex;
   flex-direction: column;
@@ -82,7 +82,7 @@ export const BoxHeader = styled.div<BoxHeaderProps>`
   box-shadow: 0 0 5px black;
 `;
 
-export const Title = styled(Fondamento)`
+export const BoxTitle = styled(FondamentoTitle)`
   margin-left: 1rem;
   font-weight: 400;
   font-size: 1.25rem;
