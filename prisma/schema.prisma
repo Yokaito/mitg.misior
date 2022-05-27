@@ -630,3 +630,11 @@ model tile_store {
   @@index([house_id], map: "house_id")
   @@ignore
 }
+
+model newsticker {
+  id         Int      @id @default(autoincrement())
+  message    String   @db.MediumText
+  icon       String   @db.VarChar(50)
+  created_at DateTime @default(now())
+  updated_at DateTime @default(now())
+}
