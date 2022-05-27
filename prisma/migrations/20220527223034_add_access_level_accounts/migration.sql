@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE `accounts` ADD COLUMN `access_level` TINYINT UNSIGNED NOT NULL DEFAULT 1;
