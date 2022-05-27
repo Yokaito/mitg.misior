@@ -189,7 +189,6 @@ model guildwar_kills {
   @@index([warid], map: "warid")
 }
 
-/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
 model house_lists {
   id       Int    @id @default(autoincrement())
   house_id Int
@@ -265,7 +264,6 @@ model market_offers {
   @@index([sale, itemtype], map: "sale")
 }
 
-/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
 model player_charms {
   id               Int      @id @default(autoincrement())
   player_guid      Int
@@ -297,7 +295,6 @@ model player_charms {
   @@ignore
 }
 
-/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
 model player_deaths {
   id                     Int     @id @default(autoincrement())
   player_id              Int
@@ -360,7 +357,6 @@ model player_inboxitems {
   @@unique([player_id, sid], map: "player_inboxitems_unique")
 }
 
-/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
 model player_items {
   id         Int     @id @default(autoincrement())
   player_id  Int     @default(0)
@@ -376,7 +372,6 @@ model player_items {
   @@ignore
 }
 
-/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
 model player_kills {
   id        Int     @id @default(autoincrement())
   player_id Int
@@ -387,7 +382,6 @@ model player_kills {
   @@ignore
 }
 
-/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
 model player_misc {
   id        Int   @id @default(autoincrement())
   player_id Int
@@ -407,7 +401,6 @@ model player_namelocks {
   @@index([namelocked_by], map: "namelocked_by")
 }
 
-/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
 model player_prey {
   id               Int     @id @default(autoincrement())
   player_id        Int
@@ -437,7 +430,6 @@ model player_rewards {
   @@unique([player_id, sid], map: "player_rewards_unique")
 }
 
-/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
 model player_spells {
   id        Int     @id @default(autoincrement())
   player_id Int
@@ -448,7 +440,6 @@ model player_spells {
   @@ignore
 }
 
-/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
 model player_stash {
   id         Int @id @default(autoincrement())
   player_id  Int
@@ -467,7 +458,6 @@ model player_storage {
   @@id([player_id, key])
 }
 
-/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
 model player_taskhunt {
   id            Int     @id @default(autoincrement())
   player_id     Int
@@ -631,7 +621,6 @@ model store_history {
   @@index([account_id], map: "account_id")
 }
 
-/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
 model tile_store {
   id       Int    @id @default(autoincrement())
   house_id Int
