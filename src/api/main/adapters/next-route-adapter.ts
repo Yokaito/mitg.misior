@@ -10,7 +10,7 @@ export const adaptRoute = (
   return async (req: NextApiRequest, res: NextApiResponse) => {
     if (middlewares) {
       for (const middleware of middlewares) {
-        const middlewareResponse = await middleware.handle(req);
+        const middlewareResponse = await middleware.handle(req, res);
         if (
           middlewareResponse.statusCode >= 200 &&
           middlewareResponse.statusCode < 300
