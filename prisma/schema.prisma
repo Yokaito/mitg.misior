@@ -53,8 +53,8 @@ model account_viplist {
 model accounts {
   id                  Int                   @id @default(autoincrement()) @db.UnsignedInt
   name                String                @unique(map: "accounts_unique") @db.VarChar(32)
-  password            String                @db.Char(40)
-  email               String                @default("") @db.VarChar(255)
+  password            String                @db.VarChar(255)
+  email               String                @unique(map: "email_unique") @default("") @db.VarChar(255)
   premdays            Int                   @default(0)
   lastday             Int                   @default(0) @db.UnsignedInt
   type                Int                   @default(1) @db.UnsignedTinyInt
@@ -62,6 +62,7 @@ model accounts {
   creation            Int                   @default(0) @db.UnsignedInt
   recruiter           Int?                  @default(0)
   access_level        Int                   @default(1) @db.UnsignedTinyInt
+  last_date_login     DateTime?             @default(now()) @db.Timestamp(0)
   account_ban_history account_ban_history[]
   account_bans        account_bans?
   account_viplist     account_viplist[]

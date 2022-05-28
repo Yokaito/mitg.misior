@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE `accounts` ADD COLUMN `last_date_login` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3);
