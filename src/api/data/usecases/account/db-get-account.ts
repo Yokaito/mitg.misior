@@ -1,7 +1,10 @@
 import prisma from '@/lib/prisma';
 import { accounts } from '@prisma/client';
 
-export const DbGetAccount = async ({ id }: DbGetAccount.Params) => {
+export const DbGetAccount = async ({
+  id,
+  getPassword = false,
+}: DbGetAccount.Params) => {
   const findedAccount = await prisma.accounts.findUnique({
     where: {
       id,
@@ -15,12 +18,13 @@ export const DbGetAccount = async ({ id }: DbGetAccount.Params) => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { password, ...accountWithoutPassword } = findedAccount;
 
-  return accountWithoutPassword;
+  return getPassword ? findedAccount : accountWithoutPassword;
 };
 
 export namespace DbGetAccount {
   export type Params = {
     id: number;
+    getPassword?: boolean;
   };
   export type Result = Omit<accounts, 'password'>;
 }
