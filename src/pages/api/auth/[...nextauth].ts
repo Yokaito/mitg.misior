@@ -7,21 +7,31 @@ export default NextAuth({
     CredentialsProvider({
       name: `Credentials`,
       credentials: {
-        username: { label: `Username`, type: `text`, placeholder: `jsmith` },
-        password: { label: `Password`, type: `password` },
+        email: {
+          label: `email`,
+          type: `email`,
+          placeholder: `...@mail.com`,
+        },
+        password: { label: `password`, type: `password` },
       },
-      async authorize(credentials, req) {
-        const user = {
-          id: 1,
-          name: `Guilherme Fontes`,
-          email: `gui.fontes.amorim@example.com`,
-          accessLevel: `4`,
-        };
+      async authorize(credentials) {
+        const res = await fetch(`${env.api.url}/api/login`, {
+          method: `POST`,
+          body: JSON.stringify({
+            email: credentials?.email,
+            password: credentials?.password,
+          }),
+          headers: {
+            'Content-Type': `application/json`,
+          },
+        });
 
-        if (user) {
-          return user;
-        } else {
+        const user = await res.json();
+
+        if (Object.hasOwn(user, `error`)) {
           return null;
+        } else {
+          return user;
         }
       },
     }),
@@ -32,7 +42,9 @@ export default NextAuth({
 
       if (isUserSignedIn) {
         token.id = user?.id;
-        token.accessLevel = user?.accessLevel;
+        token.accessLevel = user?.access_level;
+        token.coins = user?.coins;
+        token.premiumDays = user?.premdays;
       }
 
       return Promise.resolve(token);
@@ -41,9 +53,11 @@ export default NextAuth({
       const newSession = {
         user: {
           ...session.user,
-          id: token.id,
+          id: token?.id,
+          coins: token?.coins,
         },
         auth: {
+          premiumDays: token?.premiumDays,
           accessLevel: token?.accessLevel,
         },
         expires: session.expires,
