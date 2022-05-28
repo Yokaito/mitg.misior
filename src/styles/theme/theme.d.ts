@@ -16,11 +16,13 @@ declare module 'styled-components' {
       quaternary: string;
       quinary: string;
       senary: string;
+      septenary: string;
     };
     textColors: {
       primary: string;
       secondary: string;
       tertiary: string;
+      quaternary: string;
       error: string;
     };
     borders: {

@@ -3,6 +3,7 @@ import { Layout } from '@/layout';
 import '@/styles/fonts.css';
 import '@/styles/resets/reset.css';
 import '@/styles/resets/_modern-normalize.css';
+import 'react-loading-skeleton/dist/skeleton.css';
 import { ThemeProvider } from 'styled-components';
 import { defaultTheme } from '@/styles/theme';
 import LanguageProvider from '@/contexts/LanguageContext';

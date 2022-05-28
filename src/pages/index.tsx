@@ -2,13 +2,11 @@ import useTranslation from '@/hooks/useTranslation';
 import { Page } from '@/typings/page';
 import Head from 'next/head';
 import { signIn } from 'next-auth/react';
-import { useFetch } from '@/lib/swr';
-import { useEffect } from 'react';
 import Box from '@/components/ui/Box';
+import Newsticker from '@/components/Newsticker';
 
 export const Home: Page = () => {
   const { t, changeLanguage, locale } = useTranslation();
-  const { data, error } = useFetch(`/api/status`);
   const handleClickLanguage = () => {
     if (locale == `ptBr`) {
       changeLanguage(`enUs`);
@@ -16,11 +14,6 @@ export const Home: Page = () => {
       changeLanguage(`ptBr`);
     }
   };
-
-  useEffect(() => {
-    if (data) console.log(data);
-    if (error) console.log(error);
-  }, [data, error]);
 
   return (
     <div>
@@ -36,8 +29,8 @@ export const Home: Page = () => {
       <div>
         <button onClick={() => signIn(`credentials`)}>Login Credentials</button>
       </div>
-      <Box title="Newsletter">
-        <p>Guilherme Fontes</p>
+      <Box title="Newsletter" padding="minimal">
+        <Newsticker />
       </Box>
     </div>
   );

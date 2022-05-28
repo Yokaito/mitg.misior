@@ -11,6 +11,7 @@ export const defaultTheme: DefaultTheme = {
     primary: `#ffd698`,
     secondary: `#f1fbec`,
     tertiary: `#fede59`,
+    quaternary: `#5a2800`,
     error: `#f44336`,
   },
   borders: {
@@ -31,5 +32,6 @@ export const defaultTheme: DefaultTheme = {
     quaternary: `#5f4d41`,
     quinary: `#f1e0c5`,
     senary: `#505050`,
+    septenary: `#d4c0a1`,
   },
 };
