@@ -1,3 +1,3 @@
 export * from './status';
-export * from './newsticker/add-newsticker';
+export * from './newsticker';
 export * from './auth/login';
