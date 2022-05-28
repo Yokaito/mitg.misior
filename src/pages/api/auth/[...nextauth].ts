@@ -11,7 +11,12 @@ export default NextAuth({
         password: { label: `Password`, type: `password` },
       },
       async authorize(credentials, req) {
-        const user = { id: 1, name: `J Smith`, email: `jsmith@example.com` };
+        const user = {
+          id: 1,
+          name: `Guilherme Fontes`,
+          email: `gui.fontes.amorim@example.com`,
+          accessLevel: `4`,
+        };
 
         if (user) {
           return user;
@@ -21,6 +26,32 @@ export default NextAuth({
       },
     }),
   ],
+  callbacks: {
+    jwt: async ({ token, user }: any) => {
+      const isUserSignedIn = user ? true : false;
+
+      if (isUserSignedIn) {
+        token.id = user?.id;
+        token.accessLevel = user?.accessLevel;
+      }
+
+      return Promise.resolve(token);
+    },
+    session: async ({ session, token }): Promise<any> => {
+      const newSession = {
+        user: {
+          ...session.user,
+          id: token.id,
+        },
+        auth: {
+          accessLevel: token?.accessLevel,
+        },
+        expires: session.expires,
+      };
+
+      return Promise.resolve(newSession);
+    },
+  },
   secret: env.nextAuth.secret,
   session: {
     strategy: `jwt`,

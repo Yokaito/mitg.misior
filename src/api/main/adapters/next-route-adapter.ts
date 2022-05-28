@@ -1,12 +1,29 @@
-import { Controller } from '@/api/presentation/protocols';
+import { Controller, Middleware } from '@/api/presentation/protocols';
 import { NextApiRequest, NextApiResponse } from 'next';
 
 export const adaptRoute = (
   controller: Controller,
   reqTypes: Array<'body' | 'query'>,
   method: 'GET' | 'POST' | 'PUT' | 'DELETE',
+  middlewares?: Middleware[],
 ) => {
   return async (req: NextApiRequest, res: NextApiResponse) => {
+    if (middlewares) {
+      for (const middleware of middlewares) {
+        const middlewareResponse = await middleware.handle(req);
+        if (
+          middlewareResponse.statusCode >= 200 &&
+          middlewareResponse.statusCode < 300
+        ) {
+          continue;
+        } else {
+          return res
+            .status(middlewareResponse.statusCode)
+            .json({ error: middlewareResponse.body });
+        }
+      }
+    }
+
     let request = {};
     const methodReq = req.method;
 

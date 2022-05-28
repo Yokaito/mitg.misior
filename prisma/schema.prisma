@@ -637,5 +637,5 @@ model newsticker {
   message    String   @db.MediumText
   icon       String   @db.VarChar(50)
   created_at DateTime @default(now())
-  updated_at DateTime @default(now())
+  updated_at DateTime @updatedAt
 }

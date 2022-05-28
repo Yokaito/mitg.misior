@@ -6,12 +6,16 @@ export const DbGetAccount = async ({ id }: DbGetAccount.Params) => {
     where: {
       id,
     },
-    select: {
-      password: false,
-    },
   });
 
-  return findedAccount;
+  if (!findedAccount) {
+    return null;
+  }
+
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const { password, ...accountWithoutPassword } = findedAccount;
+
+  return accountWithoutPassword;
 };
 
 export namespace DbGetAccount {
