@@ -6,9 +6,22 @@ export const adaptRoute = (
   reqTypes: Array<'body' | 'query'>,
   method: 'GET' | 'POST' | 'PUT' | 'DELETE',
   middlewares?: Middleware[],
+  rateLimiters?: any[],
 ) => {
   return async (req: NextApiRequest, res: NextApiResponse) => {
-    if (middlewares) {
+    if (rateLimiters && rateLimiters.length > 0) {
+      try {
+        await Promise.all(
+          rateLimiters.map((middleware) => middleware(req, res)),
+        );
+      } catch (error) {
+        res.status(429).json({
+          error: `Too Many Requests`,
+        });
+      }
+    }
+
+    if (middlewares && middlewares.length > 0) {
       for (const middleware of middlewares) {
         const middlewareResponse = await middleware.handle(req, res);
         if (

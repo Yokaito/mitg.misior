@@ -1,39 +1,26 @@
-import lru from 'lru-cache';
-import { NextApiResponse } from 'next';
+import rateLimit from 'express-rate-limit';
+import slowDown from 'express-slow-down';
 
-type RateLimitOptions = {
-  uniqueTokenPerInterval: number;
-  interval: number;
-};
+export const applyMiddleware =
+  (middleware: any) => (request: any, response: any) =>
+    new Promise((resolve, reject) => {
+      middleware(request, response, (result: any) =>
+        result instanceof Error ? reject(result) : resolve(result),
+      );
+    });
 
-export const rateLimitCache = ({
-  uniqueTokenPerInterval,
-  interval,
-}: RateLimitOptions) => {
-  const tokenCache = new lru({
-    max: Number(uniqueTokenPerInterval || 500),
-    maxAge: Number(interval || 60000),
-  });
+export const getIP = (request: any) =>
+  request.ip ||
+  request.headers[`x-forwarded-for`] ||
+  request.headers[`x-real-ip`] ||
+  request.connection.remoteAddress;
 
-  return {
-    check: (res: NextApiResponse, limit: any, token: string) => {
-      new Promise((resolve: any, reject) => {
-        const tokenCount: any = tokenCache.get(token) || [0];
-        if (tokenCount[0] === 0) {
-          tokenCache.set(token, tokenCount);
-        }
-        tokenCount[0] += 1;
-
-        const currentUsage = tokenCount[0];
-        const isRateLimited = currentUsage >= parseInt(limit, 10);
-        res.setHeader(`X-RateLimit-Limit`, limit);
-        res.setHeader(
-          `X-RateLimit-Remaining`,
-          isRateLimited ? 0 : limit - currentUsage,
-        );
-
-        return isRateLimited ? reject() : resolve();
-      });
-    },
-  };
-};
+export const getRateLimitMiddlewares = ({
+  limit = 10,
+  windowMs = 60 * 1000,
+  delayAfter = Math.round(20 / 2),
+  delayMs = 150,
+} = {}) => [
+  slowDown({ keyGenerator: getIP, windowMs, delayAfter, delayMs }),
+  rateLimit({ keyGenerator: getIP, windowMs, max: limit }),
+];
