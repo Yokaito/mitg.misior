@@ -1,7 +1,7 @@
 import { Controller, HttpResponse } from '@/api/presentation/protocols';
 import { badRequest, ok, serverError } from '@/api/presentation/helpers';
 import Joi from 'joi';
-import DbGetNewsticker from '@/api/data/usecases/newsticker/db-get-newsticker';
+import { DbGetNewsticker } from '@/api/data/usecases/newsticker';
 
 export class GetNewstickerController implements Controller {
   async handle(
