@@ -9,4 +9,12 @@ export const misior: MisiorProps = {
   players_record: `0`,
 };
 
+interface MisiorWebProps {
+  timezone: string;
+}
+
+export const misiorWeb: MisiorWebProps = {
+  timezone: `America/Sao_Paulo`,
+};
+
 export default misior;

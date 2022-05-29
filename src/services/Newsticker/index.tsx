@@ -1,3 +1,4 @@
+import useTranslation from '@/hooks/useTranslation';
 import { useFetch } from '@/lib/swr';
 import { dateFormatNewsticker } from '@/utils/date-format';
 import { useCallback, useEffect, useState } from 'react';
@@ -13,6 +14,7 @@ export const useNewsticker = () => {
   const url = `/api/newsticker?created_at=desc&limit=5`;
   const [newstickers, setNewstickers] = useState<INewstickers[]>([]);
   const [loading, setLoading] = useState(true);
+  const { locale } = useTranslation();
 
   const { data, error, mutate, isValidating } = useFetch(url);
 
@@ -23,11 +25,11 @@ export const useNewsticker = () => {
   const newstickerWithFormat = useCallback(() => {
     const newstickersWithFormat = data.map((newsticker: INewstickers) => ({
       ...newsticker,
-      created_at: dateFormatNewsticker(newsticker.created_at as any),
+      created_at: dateFormatNewsticker(newsticker.created_at as any, locale),
     }));
 
     return newstickersWithFormat;
-  }, [data]);
+  }, [data, locale]);
 
   useEffect(() => {
     if (data) {

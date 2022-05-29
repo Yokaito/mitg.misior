@@ -1,5 +1,5 @@
 import { AppProps } from 'next/app';
-import { Layout } from '@/layout';
+
 import '@/styles/fonts.css';
 import '@/styles/resets/reset.css';
 import '@/styles/resets/_modern-normalize.css';
@@ -19,9 +19,7 @@ export const MyApp = ({
     <ThemeProvider theme={defaultTheme}>
       <SessionProvider session={session}>
         <LanguageProvider>
-          <Layout>
-            <Component {...pageProps} key={router.route} />
-          </Layout>
+          <Component {...pageProps} key={router.route} />
         </LanguageProvider>
       </SessionProvider>
     </ThemeProvider>

@@ -27,6 +27,7 @@ export const TickerDate = styled.div`
   place-self: center;
   margin-left: 0.3rem;
   line-height: 1.5;
+  text-transform: capitalize;
 `;
 
 export const TickerText = styled.div<TicketItemProps>`

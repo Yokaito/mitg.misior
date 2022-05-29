@@ -25,11 +25,11 @@ export const Home: Page = () => {
         />
         <link rel="icon" href="/logo/mitg-icon.svg" />
       </Head>
-      <button onClick={handleClickLanguage}>{t(`home/template`)}</button>
+      <button onClick={handleClickLanguage}>{locale}</button>
       <div>
         <button onClick={() => signIn(`credentials`)}>Login Credentials</button>
       </div>
-      <Box title="Newsletter" padding="minimal">
+      <Box title={t(`newsticker/title`)} padding="minimal">
         <Newsticker />
       </Box>
     </div>
