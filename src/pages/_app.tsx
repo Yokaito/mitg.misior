@@ -1,5 +1,4 @@
 import { AppProps } from 'next/app';
-
 import '@/styles/fonts.css';
 import '@/styles/resets/reset.css';
 import '@/styles/resets/_modern-normalize.css';
@@ -9,6 +8,7 @@ import { defaultTheme } from '@/styles/theme';
 import LanguageProvider from '@/contexts/LanguageContext';
 import { wrapper } from '@/store';
 import { SessionProvider } from 'next-auth/react';
+import GlobalStyles from '@/styles/resets/globalStyles';
 
 export const MyApp = ({
   Component,
@@ -22,6 +22,7 @@ export const MyApp = ({
           <Component {...pageProps} key={router.route} />
         </LanguageProvider>
       </SessionProvider>
+      <GlobalStyles />
     </ThemeProvider>
   );
 };

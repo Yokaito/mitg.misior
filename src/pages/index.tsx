@@ -4,6 +4,7 @@ import Head from 'next/head';
 import { signIn } from 'next-auth/react';
 import Box from '@/components/ui/Box';
 import Newsticker from '@/components/Newsticker';
+import Layout from '@/layout';
 
 export const Home: Page = () => {
   const { t, changeLanguage, locale } = useTranslation();
@@ -16,7 +17,7 @@ export const Home: Page = () => {
   };
 
   return (
-    <div>
+    <>
       <Head>
         <title>Misior | Home</title>
         <meta
@@ -25,14 +26,18 @@ export const Home: Page = () => {
         />
         <link rel="icon" href="/logo/mitg-icon.svg" />
       </Head>
-      <button onClick={handleClickLanguage}>{locale}</button>
-      <div>
-        <button onClick={() => signIn(`credentials`)}>Login Credentials</button>
-      </div>
-      <Box title={t(`newsticker/title`)} padding="minimal">
-        <Newsticker />
-      </Box>
-    </div>
+      <Layout>
+        <button onClick={handleClickLanguage}>{locale}</button>
+        <div>
+          <button onClick={() => signIn(`credentials`)}>
+            Login Credentials
+          </button>
+        </div>
+        <Box title={t(`newsticker/title`)} padding="minimal">
+          <Newsticker />
+        </Box>
+      </Layout>
+    </>
   );
 };
 
