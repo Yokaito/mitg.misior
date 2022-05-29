@@ -1,16 +1,16 @@
 import styled from 'styled-components';
 
-import BackgroundGreen from '@/assets/images/box/title-background-green.gif';
-import BackgroundBlue from '@/assets/images/box/title-background-blue.png';
-import BackgroundCyan from '@/assets/images/box/title-background-cyan.gif';
-import BackgroundDark from '@/assets/images/box/title-background-dark.gif';
-import BackgroundBrown from '@/assets/images/box/title-background-brown.gif';
-import BackgroundRed from '@/assets/images/box/title-background-red.gif';
+import BackgroundGreen from '@/assets/images/section/title-background-green.gif';
+import BackgroundBlue from '@/assets/images/section/title-background-blue.png';
+import BackgroundCyan from '@/assets/images/section/title-background-cyan.gif';
+import BackgroundDark from '@/assets/images/section/title-background-dark.gif';
+import BackgroundBrown from '@/assets/images/section/title-background-brown.gif';
+import BackgroundRed from '@/assets/images/section/title-background-red.gif';
 
-import { BoxProps } from '.';
+import { SectionProps } from '.';
 import { FondamentoTitle } from '../shared/Typography';
 
-export const BoxWrapper = styled.section`
+export const SectionWrapper = styled.section`
   height: max-content;
   display: flex;
   flex-direction: column;
@@ -20,9 +20,9 @@ export const BoxWrapper = styled.section`
   z-index: 0;
 `;
 
-type ContentProps = Pick<BoxProps, 'padding'>;
+type ContentProps = Pick<SectionProps, 'padding'>;
 
-export const BoxContentWrapper = styled.div<ContentProps>`
+export const SectionContentWrapper = styled.div<ContentProps>`
   border: 1px solid ${({ theme }) => theme.borders.secondary};
   background-color: ${({ theme }) => theme.backgrounds.primary};
   padding: ${({ padding }) =>
@@ -64,11 +64,11 @@ const Backgrounds: BackgroundProps = {
   } /* 28 */,
 };
 
-export interface BoxHeaderProps {
+export interface SectionHeaderProps {
   typeBackground?: 'green' | 'blue' | 'dark' | 'brown' | 'red' | 'cyan';
 }
 
-export const BoxHeader = styled.div<BoxHeaderProps>`
+export const SectionHeader = styled.div<SectionHeaderProps>`
   height: ${({ typeBackground }) =>
     typeBackground
       ? Backgrounds[typeBackground].height
@@ -82,7 +82,7 @@ export const BoxHeader = styled.div<BoxHeaderProps>`
   box-shadow: 0 0 5px black;
 `;
 
-export const BoxTitle = styled(FondamentoTitle)`
+export const SectionTitle = styled(FondamentoTitle)`
   margin-left: 1rem;
   font-weight: 400;
   font-size: 1.25rem;

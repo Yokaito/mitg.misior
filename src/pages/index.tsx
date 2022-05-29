@@ -2,7 +2,7 @@ import useTranslation from '@/hooks/useTranslation';
 import { Page } from '@/typings/page';
 import Head from 'next/head';
 import { signIn } from 'next-auth/react';
-import Box from '@/components/ui/Box';
+import Section from '@/components/ui/Section';
 import Newsticker from '@/components/Newsticker';
 import Layout from '@/layout';
 
@@ -33,9 +33,9 @@ export const Home: Page = () => {
             Login Credentials
           </button>
         </div>
-        <Box title={t(`newsticker/title`)} padding="minimal">
+        <Section title={t(`newsticker/title`)} padding="minimal">
           <Newsticker />
-        </Box>
+        </Section>
       </Layout>
     </>
   );
