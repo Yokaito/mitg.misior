@@ -1,14 +1,17 @@
 {
-  "name": "mitg-template-nextjs",
-  "description": "A TypeScript starter for Next.js that includes all you need to build amazing projects",
+  "name": "misior",
+  "description": "Create a new website open source project with nextJs to openTibia Comunnity",
   "version": "1.0.0",
   "private": true,
+  "repository": "https://github.com/MITHGaming/mitg.misior",
   "author": "Guilherme Fontes <gui.fontes.amorim@gmail.com> (@guifontes)",
   "license": "MIT",
   "keywords": [
     "nextjs",
     "starter",
-    "typescript"
+    "typescript",
+    "misior",
+    "tibia"
   ],
   "engines": {
     "node": "16.x"
