@@ -1,5 +1,5 @@
 import { newsticker } from '@prisma/client';
-import prisma from '@/lib/prisma';
+import prisma from '@/sdk/lib/prisma';
 
 export const DbDeleteNewsticker = async (id: DbDeleteNewsticker.Params) => {
   const newstickerFounded = await prisma.newsticker.findUnique({

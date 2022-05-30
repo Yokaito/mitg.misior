@@ -1,4 +1,4 @@
-import prisma from '@/lib/prisma';
+import prisma from '@/sdk/lib/prisma';
 import { accounts } from '@prisma/client';
 
 export const DbGetAccountByEmail = async ({

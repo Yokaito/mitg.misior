@@ -1,4 +1,4 @@
-import prisma from '@/lib/prisma';
+import prisma from '@/sdk/lib/prisma';
 
 export const DbUpdateAccountLastLogin = async ({
   email,
