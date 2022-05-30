@@ -1,4 +1,4 @@
-import useSWR from 'swr';
+import useSWR, { SWRConfiguration } from 'swr';
 import axios from 'axios';
 import env from '@/environment';
 
@@ -6,7 +6,20 @@ export const api = axios.create({
   baseURL: env.api.url,
 });
 
-export function useFetch<Data = any, Error = any>(url: string, body?: any) {
+const DEFAULT_OPTIONS = {
+  errorRetryCount: 3,
+  refreshWhenHidden: false,
+  refreshWhenOffline: false,
+  revalidateOnFocus: false,
+  revalidateOnReconnect: false,
+  shouldRetryOnError: true,
+};
+
+export function useFetch<Data = any, Error = any>(
+  url: string,
+  body?: any,
+  options?: SWRConfiguration,
+) {
   const { data, error, mutate, isValidating } = useSWR<Data, Error>(
     url,
     async (url) => {
@@ -15,6 +28,10 @@ export function useFetch<Data = any, Error = any>(url: string, body?: any) {
       });
 
       return response.data;
+    },
+    {
+      ...DEFAULT_OPTIONS,
+      ...options,
     },
   );
 
