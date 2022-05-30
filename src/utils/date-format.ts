@@ -1,6 +1,6 @@
 import { misiorWeb } from '../../misior.config';
 
-export const dateFormatNewsticker = (date: Date, locale = `pt-br`): string => {
+export const dateFormatNewsticker = (date: Date, locale = `ptBr`): string => {
   const baseDate = new Date(date);
   const localeSplit = `${locale.slice(0, 2)}-${locale.slice(
     2,

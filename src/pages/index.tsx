@@ -5,10 +5,10 @@ import { signIn } from 'next-auth/react';
 import Section from '@/components/ui/Section';
 import Newsticker from '@/components/Newsticker';
 import Layout from '@/layout';
-
 export const Home: Page = () => {
   const { t, changeLanguage, locale } = useTranslation();
-  const handleClickLanguage = () => {
+
+  const handleClickLanguage = async () => {
     if (locale == `ptBr`) {
       changeLanguage(`enUs`);
     } else {
@@ -27,15 +27,15 @@ export const Home: Page = () => {
         <link rel="icon" href="/logo/mitg-icon.svg" />
       </Head>
       <Layout>
+        <Section title={t(`newsticker/title`)} padding="minimal">
+          <Newsticker />
+        </Section>
         <button onClick={handleClickLanguage}>{locale}</button>
         <div>
           <button onClick={() => signIn(`credentials`)}>
             Login Credentials
           </button>
         </div>
-        <Section title={t(`newsticker/title`)} padding="minimal">
-          <Newsticker />
-        </Section>
       </Layout>
     </>
   );
