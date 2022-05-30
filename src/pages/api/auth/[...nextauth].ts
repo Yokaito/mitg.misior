@@ -1,6 +1,6 @@
 import CredentialsProvider from 'next-auth/providers/credentials';
 import NextAuth from 'next-auth';
-import env from '@/environment';
+import env from '@/sdk/environment';
 
 export default NextAuth({
   providers: [

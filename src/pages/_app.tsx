@@ -5,7 +5,7 @@ import '@/styles/resets/_modern-normalize.css';
 import 'react-loading-skeleton/dist/skeleton.css';
 import { ThemeProvider } from 'styled-components';
 import { defaultTheme } from '@/styles/theme';
-import LanguageProvider from '@/contexts/LanguageContext';
+import LanguageProvider from '@/sdk/contexts/LanguageContext';
 import { wrapper } from '@/store';
 import { SessionProvider } from 'next-auth/react';
 import GlobalStyles from '@/styles/resets/globalStyles';

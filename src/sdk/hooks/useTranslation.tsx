@@ -2,7 +2,7 @@ import {
   defaultLocale,
   LanguageContext,
   locales,
-} from '@/contexts/LanguageContext';
+} from '@/sdk/contexts/LanguageContext';
 import { useContext } from 'react';
 
 export const useTranslation = () => {

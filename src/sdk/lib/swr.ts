@@ -1,6 +1,6 @@
 import useSWR, { SWRConfiguration } from 'swr';
 import axios from 'axios';
-import env from '@/environment';
+import env from '@/sdk/environment';
 
 export const api = axios.create({
   baseURL: env.api.url,

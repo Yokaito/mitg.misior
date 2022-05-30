@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 import { createContext, FC, useEffect, useState } from 'react';
-import { LangStrings, LangStringProps } from '@/content/language';
+import { LangStrings, LangStringProps } from '@/sdk/content/language';
 
 export const defaultLocale = `ptBr`;
 export const locales = [`ptBr`, `enUs`];
