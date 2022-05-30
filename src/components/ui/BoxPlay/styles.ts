@@ -6,7 +6,6 @@ import Artwork from '@/assets/images/general/tibia-logo-artwork.gif';
 
 import Chain from '@/assets/images/borders/chain.gif';
 import LoginBoxBackground from '@/assets/images/loginbox/loginbox-background.gif';
-import { FondamentoTitle } from '../shared/Typography';
 
 export const BoxPlayWrapper = styled.div`
   display: grid;
