@@ -9,17 +9,31 @@ import LanguageProvider from '@/sdk/contexts/LanguageContext';
 import { wrapper } from '@/sdk/store';
 import { SessionProvider } from 'next-auth/react';
 import GlobalStyles from '@/styles/resets/globalStyles';
+import { useEffect } from 'react';
+import { Analytics, pageView } from '@/sdk/analytics';
 
 export const MyApp = ({
   Component,
   pageProps: { session, ...pageProps },
   router,
 }: AppProps) => {
+  useEffect(() => {
+    const handleRouteChange = (url: string) => {
+      pageView(url);
+    };
+
+    router.events.on(`routeChangeComplete`, handleRouteChange);
+    return () => {
+      router.events.off(`routeChangeComplete`, handleRouteChange);
+    };
+  }, [router.events]);
+
   return (
     <ThemeProvider theme={defaultTheme}>
       <SessionProvider session={session}>
         <LanguageProvider>
           <Component {...pageProps} key={router.route} />
+          <Analytics />
         </LanguageProvider>
       </SessionProvider>
       <GlobalStyles />
