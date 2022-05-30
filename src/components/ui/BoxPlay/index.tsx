@@ -5,11 +5,22 @@ import * as S from './styles';
 interface BoxPlayProps {
   text?: string;
   pathText?: string;
+  showLogo?: boolean;
 }
 
-export const BoxPlay: FC<BoxPlayProps> = ({ text, children, pathText }) => {
+export const BoxPlay: FC<BoxPlayProps> = ({
+  text,
+  children,
+  pathText,
+  showLogo,
+}) => {
   return (
     <S.BoxPlayWrapper>
+      {showLogo && (
+        <Link href="/">
+          <S.LogoArtwork />
+        </Link>
+      )}
       <S.BoxPlayBorder />
       <S.BoxPlayContent>
         <S.BoxPlayContentBorder />

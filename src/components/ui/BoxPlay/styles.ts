@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 import BoxTop from '@/assets/images/general/box-top.gif';
 import BoxBottom from '@/assets/images/general/box-bottom.gif';
+import Artwork from '@/assets/images/general/tibia-logo-artwork.gif';
 
 import Chain from '@/assets/images/borders/chain.gif';
 import LoginBoxBackground from '@/assets/images/loginbox/loginbox-background.gif';
@@ -10,6 +11,19 @@ import { FondamentoTitle } from '../shared/Typography';
 export const BoxPlayWrapper = styled.div`
   display: grid;
   grid-template-rows: 12px max-content 12px;
+  margin-top: -3px;
+  position: relative;
+`;
+
+export const LogoArtwork = styled.span`
+  position: absolute;
+  background-image: ${`url(${Artwork.src})`};
+  background-repeat: no-repeat;
+  width: 196px;
+  height: 158px;
+  top: -153px;
+  left: -10px;
+  cursor: pointer;
 `;
 
 type BoxPlayBorderProps = {
@@ -33,6 +47,7 @@ export const BoxPlayContent = styled.div`
   flex-direction: column;
   justify-content: start;
   align-items: center;
+  gap: 4px;
 `;
 
 interface BoxPlayContentBorderProps {
