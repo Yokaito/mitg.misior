@@ -1,7 +1,7 @@
-import { Controller, HttpResponse } from '@/api/presentation/protocols';
-import { badRequest, ok, serverError } from '@/api/presentation/helpers';
+import { Controller, HttpResponse } from '@/sdk/api/presentation/protocols';
+import { badRequest, ok, serverError } from '@/sdk/api/presentation/helpers';
 import Joi from 'joi';
-import { DbGetNewsticker } from '@/api/data/usecases/newsticker';
+import { DbGetNewsticker } from '@/sdk/api/data/usecases/newsticker';
 
 export class GetNewstickerController implements Controller {
   async handle(

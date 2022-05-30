@@ -1,7 +1,7 @@
-import { Controller, HttpResponse } from '@/api/presentation/protocols';
-import { badRequest, ok, serverError } from '@/api/presentation/helpers';
+import { Controller, HttpResponse } from '@/sdk/api/presentation/protocols';
+import { badRequest, ok, serverError } from '@/sdk/api/presentation/helpers';
 import Joi from 'joi';
-import { DbDeleteNewsticker } from '@/api/data/usecases/newsticker';
+import { DbDeleteNewsticker } from '@/sdk/api/data/usecases/newsticker';
 import { IdNotFoundError } from '../../errors';
 
 export class DeleteNewstickerController implements Controller {

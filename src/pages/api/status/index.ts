@@ -1,9 +1,9 @@
-import { adaptRoute } from '@/api/main/adapters';
-import { StatusController } from '@/api/presentation/controllers';
+import { adaptRoute } from '@/sdk/api/main/adapters';
+import { StatusController } from '@/sdk/api/presentation/controllers';
 import {
   applyMiddleware,
   getRateLimitMiddlewares,
-} from '@/api/utils/rate-limit';
+} from '@/sdk/api/utils/rate-limit';
 
 const rateLimiters = getRateLimitMiddlewares({ limit: 50 }).map(
   applyMiddleware,

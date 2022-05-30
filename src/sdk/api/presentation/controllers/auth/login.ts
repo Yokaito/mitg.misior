@@ -1,10 +1,10 @@
-import { Controller, HttpResponse } from '@/api/presentation/protocols';
-import { badRequest, ok, serverError } from '@/api/presentation/helpers';
+import { Controller, HttpResponse } from '@/sdk/api/presentation/protocols';
+import { badRequest, ok, serverError } from '@/sdk/api/presentation/helpers';
 import Joi from 'joi';
 import {
   DbGetAccountByEmail,
   DbUpdateAccountLastLogin,
-} from '@/api/data/usecases';
+} from '@/sdk/api/data/usecases';
 import bcrypt from 'bcrypt';
 import { LoginFailedError } from '../../errors';
 

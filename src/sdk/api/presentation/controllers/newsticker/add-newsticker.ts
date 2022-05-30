@@ -1,8 +1,8 @@
-import { Controller, HttpResponse } from '@/api/presentation/protocols';
-import { badRequest, ok, serverError } from '@/api/presentation/helpers';
+import { Controller, HttpResponse } from '@/sdk/api/presentation/protocols';
+import { badRequest, ok, serverError } from '@/sdk/api/presentation/helpers';
 import Joi from 'joi';
-import DbAddNewsticker from '@/api/data/usecases/newsticker/db-add-newsticker';
-import { ServerError } from '@/api/presentation/errors';
+import DbAddNewsticker from '@/sdk/api/data/usecases/newsticker/db-add-newsticker';
+import { ServerError } from '@/sdk/api/presentation/errors';
 
 export class AddNewstickerController implements Controller {
   async handle(request: any): Promise<HttpResponse> {

@@ -1,4 +1,4 @@
-import { Controller, Middleware } from '@/api/presentation/protocols';
+import { Controller, Middleware } from '@/sdk/api/presentation/protocols';
 import { NextApiRequest, NextApiResponse } from 'next';
 
 export const adaptRoute = (
