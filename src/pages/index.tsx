@@ -1,10 +1,19 @@
 import useTranslation from '@/hooks/useTranslation';
 import { Page } from '@/typings/page';
 import Head from 'next/head';
-import { signIn } from 'next-auth/react';
+import { getSession, signIn } from 'next-auth/react';
 import Section from '@/components/ui/Section';
 import Newsticker from '@/components/Newsticker';
 import Layout from '@/layout';
+
+export const getServerSideProps = async (ctx: any) => {
+  return {
+    props: {
+      session: await getSession(ctx),
+    },
+  };
+};
+
 export const Home: Page = () => {
   const { t, changeLanguage, locale } = useTranslation();
 
