@@ -25,7 +25,6 @@ export const ButtonWrapper = styled.button<ButtonWrapperProps>`
   :hover {
     background-image: ${({ extend }) =>
       extend ? `url(${ButtonExtendHover.src})` : `url(${ButtonHover.src})`};
-    transform: scale(1.01);
   }
 `;
 

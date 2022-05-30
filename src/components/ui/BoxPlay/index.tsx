@@ -3,17 +3,10 @@ import { FC } from 'react';
 import * as S from './styles';
 
 interface BoxPlayProps {
-  text?: string;
-  pathText?: string;
   showLogo?: boolean;
 }
 
-export const BoxPlay: FC<BoxPlayProps> = ({
-  text,
-  children,
-  pathText,
-  showLogo,
-}) => {
+export const BoxPlay: FC<BoxPlayProps> = ({ children, showLogo }) => {
   return (
     <S.BoxPlayWrapper>
       {showLogo && (
@@ -25,11 +18,6 @@ export const BoxPlay: FC<BoxPlayProps> = ({
       <S.BoxPlayContent>
         <S.BoxPlayContentBorder />
         {children}
-        {text && (
-          <Link href={pathText ?? `/`}>
-            <S.BoxPlayContentText>{text}</S.BoxPlayContentText>
-          </Link>
-        )}
         <S.BoxPlayContentBorder right />
       </S.BoxPlayContent>
       <S.BoxPlayBorder bottom />
