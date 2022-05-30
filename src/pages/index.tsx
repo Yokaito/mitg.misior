@@ -1,4 +1,4 @@
-import useTranslation from '@/hooks/useTranslation';
+import useTranslation from '@/sdk/hooks/useTranslation';
 import { Page } from '@/typings/page';
 import Head from 'next/head';
 import { getSession, signIn } from 'next-auth/react';

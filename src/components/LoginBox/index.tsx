@@ -1,4 +1,4 @@
-import useTranslation from '@/hooks/useTranslation';
+import useTranslation from '@/sdk/hooks/useTranslation';
 import { useSession } from 'next-auth/react';
 import BoxPlay from '@/ui/BoxPlay';
 import Button from '@/ui/Button';

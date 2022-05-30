@@ -1,4 +1,4 @@
-import useTranslation from '@/hooks/useTranslation';
+import useTranslation from '@/sdk/hooks/useTranslation';
 import { useFetch } from '@/lib/swr';
 import { dateFormatNewsticker } from '@/utils/date-format';
 import { useCallback, useEffect, useState } from 'react';
