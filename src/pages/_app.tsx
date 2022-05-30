@@ -6,7 +6,7 @@ import 'react-loading-skeleton/dist/skeleton.css';
 import { ThemeProvider } from 'styled-components';
 import { defaultTheme } from '@/styles/theme';
 import LanguageProvider from '@/sdk/contexts/LanguageContext';
-import { wrapper } from '@/store';
+import { wrapper } from '@/sdk/store';
 import { SessionProvider } from 'next-auth/react';
 import GlobalStyles from '@/styles/resets/globalStyles';
 

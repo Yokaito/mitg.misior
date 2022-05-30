@@ -1,4 +1,4 @@
-import useNewsticker from '@/services/Newsticker';
+import useNewsticker from '@/sdk/services/Newsticker';
 import { FC } from 'react';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import { TickerItem } from './TickerItem';
