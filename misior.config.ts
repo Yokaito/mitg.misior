@@ -11,10 +11,12 @@ export const misior: MisiorProps = {
 
 interface MisiorWebProps {
   timezone: string;
+  domain: string;
 }
 
 export const misiorWeb: MisiorWebProps = {
   timezone: `America/Sao_Paulo`,
+  domain: `https://misior.mitg.dev/`,
 };
 
 export default misior;

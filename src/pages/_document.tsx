@@ -1,5 +1,6 @@
 import Document, { Head, Html, Main, NextScript } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
+import { misiorWeb } from '@/misior';
 
 export default class MyDocument extends Document {
   render() {
@@ -9,14 +10,14 @@ export default class MyDocument extends Document {
           <link rel="manifest" href="manifest.json"></link>
           <meta
             name="description"
-            content="Tibia is a free massively multiplayer online role-playing game (MMORPG). Join this fascinating game that has thousands of fans from all over the world! - https://misior.mitg.dev/"
+            content={`Tibia is a free massively multiplayer online role-playing game (MMORPG). Join this fascinating game that has thousands of fans from all over the world! - ${misiorWeb.domain}`}
           />
           <meta
             name="keywords"
             content="free online game, free multiplayer game, free online rpg, free mmorpg, mmorpg, mmog, online role playing game, online multiplayer game, internet game, online rpg, rpg"
           />
           <meta property="og:type" content="website" />
-          <meta property="og:url" content="https://misior.mitg.dev/" />
+          <meta property="og:url" content={misiorWeb.domain} />
           <meta
             property="og:title"
             content="Tibia - Free Multiplayer Online Role Playing Game"
@@ -27,7 +28,7 @@ export default class MyDocument extends Document {
           />
           <meta
             property="og:image"
-            content="https://misior.mitg.dev/logo/icon-192.png"
+            content={`${misiorWeb.domain}/logo/icon-192.png`}
           />
         </Head>
         <body>
