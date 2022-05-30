@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { FondamentoTitle } from '../ui/shared/Typography';
+import { FondamentoTitle } from '@/ui/shared/Typography';
 
 export const LoginBoxText = styled(FondamentoTitle)`
   font-size: 0.8rem;

@@ -1,4 +1,4 @@
-import { misiorWeb } from '../../misior.config';
+import { misiorWeb } from '@/misior';
 
 export const dateFormatNewsticker = (date: Date, locale = `ptBr`): string => {
   const baseDate = new Date(date);

@@ -1,7 +1,7 @@
 import useTranslation from '@/hooks/useTranslation';
 import { useSession } from 'next-auth/react';
-import BoxPlay from '../ui/BoxPlay';
-import Button from '../ui/Button';
+import BoxPlay from '@/ui/BoxPlay';
+import Button from '@/ui/Button';
 import { signOut } from 'next-auth/react';
 import * as S from './styles';
 import Link from 'next/link';

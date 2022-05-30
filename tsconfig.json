@@ -17,7 +17,8 @@
     "paths": {
       "@/*": ["./src/*"],
       "@/public/*": ["./public/*"],
-      "@/misior": ["./misior.config.ts"]
+      "@/misior": ["./misior.config.ts"],
+      "@/ui/*": ["./src/components/ui/*"]
     },
     "incremental": true
   },

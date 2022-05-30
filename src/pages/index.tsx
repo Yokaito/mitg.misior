@@ -2,7 +2,7 @@ import useTranslation from '@/hooks/useTranslation';
 import { Page } from '@/typings/page';
 import Head from 'next/head';
 import { getSession, signIn } from 'next-auth/react';
-import Section from '@/components/ui/Section';
+import Section from '@/ui/Section';
 import Newsticker from '@/components/Newsticker';
 import Layout from '@/layout';
 
