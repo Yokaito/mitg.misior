@@ -1,10 +1,7 @@
 import useSWR, { SWRConfiguration } from 'swr';
 import axios from 'axios';
-import env from '@/sdk/environment';
 
-export const api = axios.create({
-  baseURL: env.api.url,
-});
+export const api = axios.create({});
 
 const DEFAULT_OPTIONS = {
   errorRetryCount: 3,
