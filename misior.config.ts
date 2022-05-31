@@ -10,12 +10,14 @@ export const misior: MisiorProps = {
 };
 
 interface MisiorWebProps {
+  otName: string;
   timezone: string;
   domain: string;
   ga_tracking_id: string;
 }
 
 export const misiorWeb: MisiorWebProps = {
+  otName: `Misior`,
   timezone: `America/Sao_Paulo`,
   domain: `https://misior.mitg.dev/`,
   ga_tracking_id: `G-MGCRHDCYFK`,

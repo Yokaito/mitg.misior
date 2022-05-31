@@ -5,6 +5,7 @@ import { getSession, signIn } from 'next-auth/react';
 import Section from '@/ui/Section';
 import Newsticker from '@/components/Newsticker';
 import Layout from '@/layout';
+import { misiorWeb } from '@/misior';
 
 export const getServerSideProps = async (ctx: any) => {
   return {
@@ -28,8 +29,7 @@ export const Home: Page = () => {
   return (
     <>
       <Head>
-        <title>Misior | Home</title>
-        <link rel="icon" href="/logo/mitg-icon.svg" />
+        <title>{misiorWeb.otName} | Home</title>
       </Head>
       <Layout>
         <Section title={t(`newsticker/title`)} padding="minimal">

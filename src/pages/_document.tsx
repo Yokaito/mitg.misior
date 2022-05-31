@@ -8,6 +8,7 @@ export default class MyDocument extends Document {
       <Html lang="en">
         <Head>
           <link rel="manifest" href="manifest.json"></link>
+          <link rel="icon" href="/logo/mitg-icon.svg" />
           <meta
             name="description"
             content={`Tibia is a free massively multiplayer online role-playing game (MMORPG). Join this fascinating game that has thousands of fans from all over the world! - ${misiorWeb.domain}`}
