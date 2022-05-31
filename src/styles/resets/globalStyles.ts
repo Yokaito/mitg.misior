@@ -1,5 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
-import Background from '@/assets/images/background/background.jpg';
+import Background from '@/assets/images/background/background.webp';
 
 export default createGlobalStyle`
 
