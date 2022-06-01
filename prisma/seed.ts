@@ -7,7 +7,7 @@ export const main = async (): Promise<void> => {
   const localConfigs: Array<server_config> = [];
   const dbConfigs = await prisma.server_config.findMany();
 
-  Object.keys(misior).map((config) => {
+  Object.keys(misior).forEach((config) => {
     localConfigs.push({ config: config, value: misior[config] });
   });
 
@@ -23,8 +23,6 @@ export const main = async (): Promise<void> => {
       data: localConfigs,
     });
   }
-
-  return;
 };
 
 main()
