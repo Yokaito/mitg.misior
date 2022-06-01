@@ -22,11 +22,22 @@ export const SectionWrapper = styled.section`
 
 type ContentProps = Pick<SectionProps, 'padding'>;
 
+const sectionContentWrapperPadding = ({ padding }: ContentProps) => {
+  if (padding === `minimal`) {
+    return `.3rem`;
+  }
+
+  if (padding === `normal`) {
+    return `.6rem`;
+  }
+
+  return `.9rem`;
+};
+
 export const SectionContentWrapper = styled.div<ContentProps>`
   border: 1px solid ${({ theme }) => theme.borders.secondary};
   background-color: ${({ theme }) => theme.backgrounds.primary};
-  padding: ${({ padding }) =>
-    padding === `minimal` ? `.3rem` : padding === `normal` ? `.6rem` : `.9rem`};
+  padding: ${({ padding }) => sectionContentWrapperPadding({ padding })};
   margin: 0.4rem 0.25rem 0.25rem;
 `;
 
