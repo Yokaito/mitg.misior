@@ -2,7 +2,7 @@ import prisma from '@/sdk/lib/prisma';
 
 export const DbUpdateAccountLastLogin = async ({
   email,
-}: DbUpdateAccountLastLogin.Params) => {
+}: DbUpdateAccountLastLoginSpace.Params) => {
   const responseUpdate = await prisma.accounts.update({
     data: {
       last_date_login: new Date(),
@@ -15,7 +15,7 @@ export const DbUpdateAccountLastLogin = async ({
   return responseUpdate ? true : false;
 };
 
-export namespace DbUpdateAccountLastLogin {
+export namespace DbUpdateAccountLastLoginSpace {
   export type Params = {
     email: string;
   };

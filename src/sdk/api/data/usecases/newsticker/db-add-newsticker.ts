@@ -4,7 +4,7 @@ import { newsticker } from '@prisma/client';
 export const DbAddNewsticker = async ({
   message,
   icon,
-}: DbAddNewsticker.Params) => {
+}: DbAddNewstickerSpace.Params) => {
   const createdNewsticker = await prisma.newsticker.create({
     data: {
       message,
@@ -15,7 +15,7 @@ export const DbAddNewsticker = async ({
   return createdNewsticker;
 };
 
-export namespace DbAddNewsticker {
+export namespace DbAddNewstickerSpace {
   export type Params = {
     message: string;
     icon: string;

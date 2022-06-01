@@ -3,7 +3,7 @@ import { accounts } from '@prisma/client';
 
 export const DbGetAccountByEmail = async ({
   email,
-}: DbGetAccountByEmail.Params) => {
+}: DbGetAccountByEmailSpace.Params) => {
   return await prisma.accounts.findUnique({
     where: {
       email,
@@ -11,7 +11,7 @@ export const DbGetAccountByEmail = async ({
   });
 };
 
-export namespace DbGetAccountByEmail {
+export namespace DbGetAccountByEmailSpace {
   export type Params = {
     email: string;
     getPassword?: boolean;

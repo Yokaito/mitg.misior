@@ -4,7 +4,7 @@ import { accounts } from '@prisma/client';
 export const DbGetAccount = async ({
   id,
   getPassword = false,
-}: DbGetAccount.Params) => {
+}: DbGetAccountSpace.Params) => {
   const findedAccount = await prisma.accounts.findUnique({
     where: {
       id,
@@ -21,7 +21,7 @@ export const DbGetAccount = async ({
   return getPassword ? findedAccount : accountWithoutPassword;
 };
 
-export namespace DbGetAccount {
+export namespace DbGetAccountSpace {
   export type Params = {
     id: number;
     getPassword?: boolean;

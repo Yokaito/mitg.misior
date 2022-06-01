@@ -1,7 +1,9 @@
 import { newsticker } from '@prisma/client';
 import prisma from '@/sdk/lib/prisma';
 
-export const DbDeleteNewsticker = async (id: DbDeleteNewsticker.Params) => {
+export const DbDeleteNewsticker = async (
+  id: DbDeleteNewstickerSpace.Params,
+) => {
   const newstickerFounded = await prisma.newsticker.findUnique({
     where: {
       id,
@@ -21,7 +23,7 @@ export const DbDeleteNewsticker = async (id: DbDeleteNewsticker.Params) => {
   return newsticker;
 };
 
-export namespace DbDeleteNewsticker {
+export namespace DbDeleteNewstickerSpace {
   export type Params = number;
   export type Result = newsticker | null;
 }
