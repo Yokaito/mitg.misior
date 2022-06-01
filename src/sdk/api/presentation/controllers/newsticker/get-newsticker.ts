@@ -1,7 +1,10 @@
 import { Controller, HttpResponse } from '@/sdk/api/presentation/protocols';
 import { badRequest, ok, serverError } from '@/sdk/api/presentation/helpers';
 import Joi from 'joi';
-import { DbGetNewsticker } from '@/sdk/api/data/usecases/newsticker';
+import {
+  DbGetNewsticker,
+  DbGetNewstickerSpace,
+} from '@/sdk/api/data/usecases/newsticker';
 
 export class GetNewstickerController implements Controller {
   async handle(
@@ -23,7 +26,7 @@ export class GetNewstickerController implements Controller {
   }
 }
 export namespace GetNewstickerController {
-  export type Request = DbGetNewsticker.Params;
+  export type Request = DbGetNewstickerSpace.Params;
 }
 
 const GetNewstickerControllerSchema = Joi.object({
