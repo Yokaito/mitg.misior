@@ -4,13 +4,11 @@ import { accounts } from '@prisma/client';
 export const DbGetAccountByEmail = async ({
   email,
 }: DbGetAccountByEmail.Params) => {
-  const findedAccount = await prisma.accounts.findUnique({
+  return await prisma.accounts.findUnique({
     where: {
       email,
     },
   });
-
-  return findedAccount;
 };
 
 export namespace DbGetAccountByEmail {
