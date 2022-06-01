@@ -19,8 +19,8 @@ export function useFetch<Data = any, Error = any>(
 ) {
   const { data, error, mutate, isValidating } = useSWR<Data, Error>(
     url,
-    async (url) => {
-      const response = await api.get(url, {
+    async (urlGet) => {
+      const response = await api.get(urlGet, {
         data: body,
       });
 
