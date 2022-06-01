@@ -14,13 +14,11 @@ export const DbDeleteNewsticker = async (
     return null;
   }
 
-  const deletedNewsticker = await prisma.newsticker.delete({
+  return await prisma.newsticker.delete({
     where: {
       id,
     },
   });
-
-  return deletedNewsticker;
 };
 
 export namespace DbDeleteNewstickerSpace {
