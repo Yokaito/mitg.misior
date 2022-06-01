@@ -7,7 +7,7 @@ export default class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
-          <link rel="manifest" href="manifest.json"></link>
+          <link rel="manifest" href="/manifest.json"></link>
           <link rel="icon" href="/logo/mitg-icon.svg" />
           <meta
             name="description"
