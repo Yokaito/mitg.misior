@@ -23,12 +23,10 @@ export const useNewsticker = () => {
   };
 
   const newstickerWithFormat = useCallback(() => {
-    const newstickersWithFormat = data.map((newsticker: INewstickers) => ({
+    return data.map((newsticker: INewstickers) => ({
       ...newsticker,
       created_at: dateFormatNewsticker(newsticker.created_at as any, locale),
     }));
-
-    return newstickersWithFormat;
   }, [data, locale]);
 
   useEffect(() => {
