@@ -14,7 +14,9 @@ type LanguageContextProps = {
 export const LanguageContext = createContext<LanguageContextProps>({
   langs: LangStrings,
   locale: defaultLocale,
-  setLocale: () => {},
+  setLocale: (): any => {
+    return;
+  },
 });
 
 export const LanguageProvider: FC = ({ children }) => {
