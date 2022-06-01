@@ -5,7 +5,7 @@ export const DbAddNewsticker = async ({
   message,
   icon,
 }: DbAddNewstickerSpace.Params) => {
-  return await prisma.newsticker.create({
+  return prisma.newsticker.create({
     data: {
       message,
       icon,

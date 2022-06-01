@@ -14,7 +14,7 @@ export const DbDeleteNewsticker = async (
     return null;
   }
 
-  return await prisma.newsticker.delete({
+  return prisma.newsticker.delete({
     where: {
       id,
     },

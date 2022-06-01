@@ -4,7 +4,7 @@ import { accounts } from '@prisma/client';
 export const DbGetAccountByEmail = async ({
   email,
 }: DbGetAccountByEmailSpace.Params) => {
-  return await prisma.accounts.findUnique({
+  return prisma.accounts.findUnique({
     where: {
       email,
     },
