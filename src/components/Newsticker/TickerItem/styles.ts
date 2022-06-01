@@ -51,11 +51,11 @@ export const TickerShow = styled.div<TicketItemProps>`
   place-self: start center;
 `;
 
-interface Icons {
+interface IconsImgProps {
   [key: string]: string;
 }
 
-const Icons: Icons = {
+const Icons: IconsImgProps = {
   community: Community.src,
   technical: Technical.src,
   development: Development.src,
