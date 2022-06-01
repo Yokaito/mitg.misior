@@ -17,7 +17,7 @@ export const CreateAccountPage: FC = () => {
         <title>{misiorWeb.otName} | Create Account</title>
       </Head>
       <Layout>
-        <Section title={`${t(`account/create`)}`} padding="normal">
+        <Section title={t(`account/create`)} padding="normal">
           <Caption title="Create New Account">
             <Container gap={10}>
               <InnerContainer>Kamity</InnerContainer>
