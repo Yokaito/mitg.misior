@@ -7,13 +7,26 @@ import CornerBr from '@/assets/images/corners/corner-br.gif';
 
 import { CornerProps } from '.';
 
+const getCornerSrc = ({ bottom, right }: CornerProps) => {
+  if (bottom && right) {
+    return `url(${CornerBr.src})`;
+  }
+
+  if (bottom && !right) {
+    return `url(${CornerBl.src})`;
+  }
+
+  if (!bottom && right) {
+    return `url(${CornerTr.src})`;
+  }
+
+  return `url(${CornerTl.src})`;
+};
+
 export const CornerWrapper = styled.div<CornerProps>`
   height: 17px;
   width: 17px;
-  background-image: ${({ right, bottom }) =>
-    right
-      ? `url(${bottom ? CornerBr.src : CornerTr.src})`
-      : `url(${bottom ? CornerBl.src : CornerTl.src})`};
+  background-image: ${({ bottom, right }) => getCornerSrc({ bottom, right })};
   z-index: 9;
   position: absolute;
   background-repeat: no-repeat;
