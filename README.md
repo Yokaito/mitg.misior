@@ -4,26 +4,36 @@
 
 <br />
 
-<div align="center">Highly scalable foundation with the best DX. All the tools you need to build your next project.</div>
+<div align="center">Altamente escalavel, usando as melhores tecnologias. Todas as ferramentas para a construção do site.</div>
 
 <br />
 
 <div align="center">
   <img src="https://img.shields.io/static/v1?label=PRs&message=welcome&style=flat-square&color=5e17eb&labelColor=000000" alt="PRs welcome!" />
 
-  <img alt="License" src="https://img.shields.io/github/license/jpedroschmitz/typescript-nextjs-starter?style=flat-square&color=5e17eb&labelColor=000000">
+  <img alt="License" src="https://img.shields.io/badge/license-MITG-brightgreen?style=flat-square&color=5e17eb&labelColor=000000">
 </div>
 
 <div align="center">
-  <sub>Created by <a href="https://twitter.com/jpedroschmitz">João Pedro</a> with the help of many <a href="https://github.com/jpedroschmitz/typescript-nextjs-starter/graphs/contributors">wonderful contributors</a>.</sub>
+  <br />
+  <img src="https://sonarcloud.io/api/project_badges/measure?project=MITHGaming_mitg.misior&metric=sqale_rating" alt="PRs welcome!" />
+  <img src="https://sonarcloud.io/api/project_badges/measure?project=MITHGaming_mitg.misior&metric=security_rating" alt="PRs welcome!" />
+  <img src="https://sonarcloud.io/api/project_badges/measure?project=MITHGaming_mitg.misior&metric=bugs" alt="PRs welcome!" />
+  <img src="https://sonarcloud.io/api/project_badges/measure?project=MITHGaming_mitg.misior&metric=code_smells" alt="PRs welcome!" />
+  <img src="https://sonarcloud.io/api/project_badges/measure?project=MITHGaming_mitg.misior&metric=vulnerabilities" alt="PRs welcome!" /> 
 </div>
+
+<div align="center">
+  <sub>Criado por <a href="https://github.com/Yokaito">Guilherme Fontes</a> com a ajuda <a href="https://github.com/MITHGaming/mitg.misior/graphs/contributors">desses contribuidores</a>.</sub>
+</div>
+
 
 <br />
 
 ## Features
 
 - ⚡️ Next.js 12
-- ⚛️ React 17
+- ⚛️ React 18
 - ⛑ TypeScript
 - 📏 ESLint — Find and fix problems in your code
 - 💖 Prettier — Code Formatter for consistent style
@@ -36,16 +46,6 @@
 - ⚙️ EditorConfig - Maintain consistent coding styles across editors and IDEs
 - 🗂 Path Mapping — Import components or images using the `@` prefix
 - 🖌 Stiches — CSS in JS
-
-## Quick Start
-
-The best way to start with this template is using [Create Next App](https://nextjs.org/docs/api-reference/create-next-app).
-
-```
-yarn create next-app -e https://github.com/MITHGaming/mitg.template-nextjs
-# or
-npx create-next-app -e https://github.com/MITHGaming/mitg.template-nextjs
-```
 
 ### Development
 
@@ -61,7 +61,7 @@ Open `http://localhost:3000` with your browser to see the result.
 
 ### Requirements
 
-- Node.js >= 12.22.0
+- Node.js >= 16.x
 - Yarn 1 (Classic)
 
 ### Directory Structure
