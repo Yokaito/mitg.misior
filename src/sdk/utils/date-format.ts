@@ -16,7 +16,5 @@ export const dateFormatNewsticker = (date: Date, locale = `ptBr`): string => {
   const hour = baseDate.getHours();
   const minute = baseDate.getMinutes();
 
-  const dateFormat = `${month} ${day} ${year} - ${hour}:${minute}`;
-
-  return dateFormat;
+  return `${month} ${day} ${year} - ${hour}:${minute}`;
 };
