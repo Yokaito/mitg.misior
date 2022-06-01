@@ -6,15 +6,13 @@ export const DbGetNewsticker = async ({
   limit = 10,
   skip = 0,
 }: DbGetNewstickerSpace.Params) => {
-  const createdNewsticker = await prisma.newsticker.findMany({
+  return await prisma.newsticker.findMany({
     orderBy: {
       created_at,
     },
     take: limit,
     skip,
   });
-
-  return createdNewsticker;
 };
 
 export namespace DbGetNewstickerSpace {
