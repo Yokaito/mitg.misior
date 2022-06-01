@@ -5,14 +5,12 @@ export const DbAddNewsticker = async ({
   message,
   icon,
 }: DbAddNewstickerSpace.Params) => {
-  const createdNewsticker = await prisma.newsticker.create({
+  return await prisma.newsticker.create({
     data: {
       message,
       icon,
     },
   });
-
-  return createdNewsticker;
 };
 
 export namespace DbAddNewstickerSpace {
