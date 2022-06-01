@@ -1,6 +1,9 @@
 import { Controller, Middleware } from '@/sdk/api/presentation/protocols';
 import { NextApiRequest, NextApiResponse } from 'next';
 
+import { rateLimiterAdapter } from './rate-limiter-adapter';
+import { middlewareAdapter } from './middleware-adapter';
+
 export const adaptRoute = (
   controller: Controller,
   reqTypes: Array<'body' | 'query'>,
@@ -9,33 +12,8 @@ export const adaptRoute = (
   rateLimiters?: any[],
 ) => {
   return async (req: NextApiRequest, res: NextApiResponse) => {
-    if (rateLimiters && rateLimiters.length > 0) {
-      try {
-        await Promise.all(
-          rateLimiters.map((middleware) => middleware(req, res)),
-        );
-      } catch (error) {
-        res.status(429).json({
-          error: `Too Many Requests`,
-        });
-      }
-    }
-
-    if (middlewares && middlewares.length > 0) {
-      for (const middleware of middlewares) {
-        const middlewareResponse = await middleware.handle(req, res);
-        if (
-          middlewareResponse.statusCode >= 200 &&
-          middlewareResponse.statusCode < 300
-        ) {
-          continue;
-        } else {
-          return res
-            .status(middlewareResponse.statusCode)
-            .json({ error: middlewareResponse.body });
-        }
-      }
-    }
+    rateLimiterAdapter(res, req, rateLimiters);
+    middlewareAdapter(res, req, middlewares);
 
     let request = {};
     const methodReq = req.method;
