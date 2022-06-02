@@ -7,7 +7,6 @@ import {
   serverError,
 } from '@/sdk/api/presentation/helpers';
 import { SearchEmailUseCase } from '@/sdk/api/data/usecases/search/';
-import { join } from 'path';
 
 export class SearchByEmailController implements Controller {
   async handle(
