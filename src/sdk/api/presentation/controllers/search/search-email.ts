@@ -6,7 +6,8 @@ import {
   ok,
   serverError,
 } from '@/sdk/api/presentation/helpers';
-import { DbSearchEmail } from '@/sdk/api/infra/database';
+import { SearchEmailUseCase } from '@/sdk/api/data/usecases/search/';
+import { join } from 'path';
 
 export class SearchByEmailController implements Controller {
   async handle(
@@ -19,8 +20,7 @@ export class SearchByEmailController implements Controller {
         return badRequest(error);
       }
 
-      const emailWithout = value.email.slice(0, value.email.indexOf(`@`));
-      const accounts = await DbSearchEmail({ email: emailWithout });
+      const accounts = await SearchEmailUseCase({ email: value.email });
 
       if (!accounts) {
         return noContent();
