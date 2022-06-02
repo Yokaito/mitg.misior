@@ -19,7 +19,8 @@ export class SearchByEmailController implements Controller {
         return badRequest(error);
       }
 
-      const accounts = await DbSearchEmail({ email: value.email });
+      const emailWithout = value.email.slice(0, value.email.indexOf(`@`));
+      const accounts = await DbSearchEmail({ email: emailWithout });
 
       if (!accounts) {
         return noContent();
@@ -39,5 +40,5 @@ export namespace SearchByEmailControllerSpace {
 }
 
 const SearchByEmailControllerSchema = Joi.object({
-  email: Joi.string().required().min(3),
+  email: Joi.string().required().min(3).email(),
 });
