@@ -4,7 +4,7 @@ import Joi from 'joi';
 import {
   DbGetNewsticker,
   DbGetNewstickerSpace,
-} from '@/sdk/api/data/usecases/newsticker';
+} from '@/sdk/api/infra/database/';
 
 export class GetNewstickerController implements Controller {
   async handle(

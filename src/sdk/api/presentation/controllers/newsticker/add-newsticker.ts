@@ -1,7 +1,7 @@
 import { Controller, HttpResponse } from '@/sdk/api/presentation/protocols';
 import { badRequest, ok, serverError } from '@/sdk/api/presentation/helpers';
 import Joi from 'joi';
-import DbAddNewsticker from '@/sdk/api/data/usecases/newsticker/db-add-newsticker';
+import { DbAddNewsticker } from '@/sdk/api/infra/database/';
 import { ServerError } from '@/sdk/api/presentation/errors';
 
 export class AddNewstickerController implements Controller {

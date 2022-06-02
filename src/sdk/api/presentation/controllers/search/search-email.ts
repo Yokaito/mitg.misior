@@ -6,7 +6,7 @@ import {
   ok,
   serverError,
 } from '@/sdk/api/presentation/helpers';
-import { DbSearchEmail } from '@/sdk/api/data/usecases';
+import { DbSearchEmail } from '@/sdk/api/infra/database';
 
 export class SearchByEmailController implements Controller {
   async handle(

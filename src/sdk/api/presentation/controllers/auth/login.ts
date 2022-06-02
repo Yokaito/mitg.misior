@@ -4,7 +4,7 @@ import Joi from 'joi';
 import {
   DbGetAccountByEmail,
   DbUpdateAccountLastLogin,
-} from '@/sdk/api/data/usecases';
+} from '@/sdk/api/infra/database/';
 import bcrypt from 'bcrypt';
 import { LoginFailedError } from '../../errors';
 

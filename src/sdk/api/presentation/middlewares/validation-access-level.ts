@@ -4,7 +4,7 @@ import { NextRequest } from 'next/server';
 import { AuthorizationNotFound, PermissionDeniedError } from '../errors';
 import { noContent, serverError, unauthorized } from '../helpers';
 import { getToken } from 'next-auth/jwt';
-import { DbGetAccount } from '@/sdk/api/data/usecases';
+import { DbGetAccount } from '@/sdk/api/infra/database';
 
 export class ValidationAccessLevelMiddleware implements Middleware {
   constructor(private readonly accessLevels: Array<number>) {}
