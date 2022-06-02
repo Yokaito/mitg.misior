@@ -12,8 +12,8 @@ export const adaptRoute = (
   rateLimiters?: any[],
 ) => {
   return async (req: NextApiRequest, res: NextApiResponse) => {
-    rateLimiterAdapter(res, req, rateLimiters);
-    middlewareAdapter(res, req, middlewares);
+    await rateLimiterAdapter(res, req, rateLimiters);
+    await middlewareAdapter(res, req, middlewares);
 
     let request = {};
     const methodReq = req.method;
