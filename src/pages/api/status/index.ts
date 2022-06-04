@@ -4,13 +4,18 @@ import {
   applyMiddleware,
   getRateLimitMiddlewares,
 } from '@/sdk/utils/rate-limit';
+import Joi from 'joi';
 
 const rateLimiters = getRateLimitMiddlewares({ limit: 50 }).map(
   applyMiddleware,
 );
 
+const validation = Joi.object({
+  statusId: Joi.number().integer().greater(3).required(),
+});
+
 export default adaptRoute(
-  new StatusController(),
+  new StatusController(validation),
   [`body`],
   `GET`,
   [],

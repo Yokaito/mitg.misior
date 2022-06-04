@@ -1,11 +1,12 @@
 import { badRequest, ok, serverError } from '../helpers';
 import { Controller, HttpResponse } from '../protocols';
-import Joi from 'joi';
+import { ObjectSchema } from 'joi';
 
 export class StatusController implements Controller {
+  constructor(private readonly joi: ObjectSchema) {}
   async handle(request: StatusController.Request): Promise<HttpResponse> {
     try {
-      const { value, error } = StatusControllerSchema.validate(request);
+      const { value, error } = this.joi.validate(request);
 
       if (error) {
         return badRequest(error);
@@ -22,7 +23,3 @@ export namespace StatusController {
     statusId: number;
   };
 }
-
-const StatusControllerSchema = Joi.object({
-  statusId: Joi.number(),
-});
