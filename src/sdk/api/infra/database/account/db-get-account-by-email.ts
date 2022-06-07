@@ -14,7 +14,6 @@ export const DbGetAccountByEmail = async ({
 export namespace DbGetAccountByEmailSpace {
   export type Params = {
     email: string;
-    getPassword?: boolean;
   };
   export type Result = accounts;
 }

@@ -1,12 +1,7 @@
 import { Controller, HttpResponse } from '@/sdk/api/presentation/protocols';
 import { badRequest, ok, serverError } from '@/sdk/api/presentation/helpers';
 import Joi from 'joi';
-import {
-  DbGetAccountByEmail,
-  DbUpdateAccountLastLogin,
-} from '@/sdk/api/infra/database/';
-import bcrypt from 'bcrypt';
-import { LoginFailedError } from '../../errors';
+import { LoginUseCase } from '@/sdk/api/data/usecases';
 
 export class LoginController implements Controller {
   async handle(request: any): Promise<HttpResponse> {
@@ -17,29 +12,16 @@ export class LoginController implements Controller {
         return badRequest(error);
       }
 
-      const account = await DbGetAccountByEmail({
+      const response = await LoginUseCase({
         email: value.email,
+        password: value.password,
       });
 
-      if (!account) {
-        return badRequest(new LoginFailedError());
+      if (`statusCode` in response) {
+        return response;
       }
 
-      const isValid = bcrypt.compareSync(value.password, account.password);
-
-      if (!isValid) {
-        return badRequest(new LoginFailedError());
-      }
-
-      // remove property password from account
-      const accountWithoutPassword = {
-        ...account,
-        password: undefined,
-      };
-
-      await DbUpdateAccountLastLogin({ email: account.email });
-
-      return ok(accountWithoutPassword);
+      return ok(response);
     } catch (error: any) {
       return serverError(error);
     }
