@@ -1,9 +1,7 @@
 import styled from 'styled-components';
 
 import Button from '@/assets/images/shared/button/button.png';
-import ButtonHover from '@/assets/images/shared/button/button-hover.png';
 import ButtonExtend from '@/assets/images/shared/button/button-extend.png';
-import ButtonExtendHover from '@/assets/images/shared/button/button-extend-hover.png';
 import { FondamentoTitle } from '../shared/Typography';
 
 import { ButtonProps } from '.';
@@ -20,11 +18,10 @@ export const ButtonWrapper = styled.button<ButtonWrapperProps>`
   width: ${({ extend }) => (extend ? `150px` : `142px`)};
   display: grid;
   place-content: center;
-  transition: transform 100ms ease-in-out;
+  transition: all 100ms ease-in-out;
 
   :hover {
-    background-image: ${({ extend }) =>
-      extend ? `url(${ButtonExtendHover.src})` : `url(${ButtonHover.src})`};
+    filter: brightness(1.1) contrast(1.1) saturate(1.1);
   }
 `;
 
