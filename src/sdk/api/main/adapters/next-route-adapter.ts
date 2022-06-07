@@ -14,6 +14,7 @@ export const adaptRoute = (
   return async (req: NextApiRequest, res: NextApiResponse) => {
     await rateLimiterAdapter(res, req, rateLimiters);
     await middlewareAdapter(res, req, middlewares);
+    res.setHeader(`X-Powered-by`, `misior`);
 
     let request = {};
     const methodReq = req.method;

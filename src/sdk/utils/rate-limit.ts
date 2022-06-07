@@ -1,5 +1,6 @@
 import rateLimit from 'express-rate-limit';
 import slowDown from 'express-slow-down';
+import responseTime from 'response-time';
 
 export const applyMiddleware =
   (middleware: any) => (request: any, response: any) =>
@@ -29,4 +30,5 @@ export const getRateLimitMiddlewares = ({
     delayMs,
   }),
   rateLimit({ keyGenerator: getIP, windowMs, max: limit }),
+  responseTime(),
 ];
