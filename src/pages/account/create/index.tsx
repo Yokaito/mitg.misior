@@ -7,6 +7,7 @@ import useTranslation from '@/sdk/hooks/useTranslation';
 import Caption from '@/components/ui/Caption';
 import InnerContainer from '@/components/ui/shared/InnerContainer';
 import Container from '@/components/ui/shared/Container';
+import CreateAccountForm from '@/components/CreateAccountForm';
 
 export const CreateAccountPage: FC = () => {
   const { t } = useTranslation();
@@ -20,11 +21,9 @@ export const CreateAccountPage: FC = () => {
         <Section title={t(`account/create`)} padding="normal">
           <Caption title="Create New Account">
             <Container gap={10}>
-              <InnerContainer>Kamity</InnerContainer>
-              <InnerContainer>Kamity</InnerContainer>
-              <InnerContainer>Kamity</InnerContainer>
-              <InnerContainer>Kamity</InnerContainer>
-              <InnerContainer>Kamity</InnerContainer>
+              <InnerContainer>
+                <CreateAccountForm />
+              </InnerContainer>
             </Container>
           </Caption>
         </Section>
