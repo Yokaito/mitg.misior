@@ -22,12 +22,8 @@ export const CreateAccountPage: FC = () => {
           <Caption title="Create New Account">
             <Container gap={10}>
               <InnerContainer>
-                <CreateAccountForm></CreateAccountForm>
+                <CreateAccountForm />
               </InnerContainer>
-              <InnerContainer>Kamity</InnerContainer>
-              <InnerContainer>Kamity</InnerContainer>
-              <InnerContainer>Kamity</InnerContainer>
-              <InnerContainer>Kamity</InnerContainer>
             </Container>
           </Caption>
         </Section>
