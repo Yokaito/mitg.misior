@@ -18,3 +18,7 @@ export const dateFormatNewsticker = (date: Date, locale = `ptBr`): string => {
 
   return `${month} ${day} ${year} - ${hour}:${minute}`;
 };
+
+export const convertToUnixTime = (date: string) => {
+  return Math.round(new Date(date).getTime() / 1000);
+};
