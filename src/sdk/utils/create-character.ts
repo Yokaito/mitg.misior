@@ -16,9 +16,9 @@ export const createCharacter = (player: players) => {
     legscolor: player.looklegs,
     detailcolor: player.lookfeet,
     addonsflags: player.lookaddons,
-    ishidden: 0,
+    ishidden: player.ishidden,
     istournamentparticipant: false,
-    ismaincharacter: false,
+    ismaincharacter: player.mainCharacter,
     dailyrewardstate: player.isreward,
     remainingdailytournamentplaytime: false,
   };
