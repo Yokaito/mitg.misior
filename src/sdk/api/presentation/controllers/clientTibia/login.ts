@@ -7,6 +7,7 @@ import { otConfigs } from '@/misior';
 import { verifyPremiumTime } from '@/sdk/utils/premium-time';
 import { createDateAsUTC } from '@/sdk/utils/date-format';
 import { unauthorizedClientTibia } from '@/sdk/api/presentation/helpers';
+import Joi from 'joi';
 
 /*
   TODO - Implementar o campo de token de autenticação
@@ -14,21 +15,29 @@ import { unauthorizedClientTibia } from '@/sdk/api/presentation/helpers';
 
 export class LoginClientController implements Controller {
   async handle(request: LoginClientControllerSpace.Request): Promise<any> {
+    const { value, error } = LoginClientControllerSchema.validate(request);
+
+    if (error) {
+      return unauthorizedClientTibia(error.message, 3, error);
+    }
+
     const account = await DbGetAccountByEmail({
-      email: request.email,
+      email: value.email,
     });
 
     if (!account) {
       return unauthorizedClientTibia(
         `Tibia account email address or Tibia password is not correct`,
+        3,
       );
     }
 
-    const passwordIsValid = sha1(request.password) === account.password;
+    const passwordIsValid = sha1(value.password) === account.password;
 
     if (!passwordIsValid) {
       return unauthorizedClientTibia(
         `Tibia account email address or Tibia password is not correct`,
+        3,
       );
     }
 
@@ -104,7 +113,7 @@ export class LoginClientController implements Controller {
         optiontracking: false,
         premiumuntil: premiumDaysUpdated > 0 ? premiumDateExpireUnixTime : 0,
         returnernotification: false,
-        sessionkey: `${account.email}\n${request.password}`,
+        sessionkey: `${account.email}\n${value.password}`,
         showrewardnews: true,
         status: `active`,
         tournamentticketpurchasestate: 0,
@@ -112,6 +121,14 @@ export class LoginClientController implements Controller {
     };
   }
 }
+
+const LoginClientControllerSchema = Joi.object({
+  email: Joi.string().required().email(),
+  password: Joi.string().required(),
+  stayloggedin: Joi.boolean().optional(),
+  token: Joi.string().optional(),
+  type: Joi.string().optional(),
+});
 
 export namespace LoginClientControllerSpace {
   export type Request = {
