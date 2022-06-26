@@ -5,6 +5,7 @@ export const clientTibiaRouteAdapter = (
   CacheInfoController: Controller,
   BoostedCreatureController: Controller,
   EventScheduleController: Controller,
+  LoginClientController: Controller,
 ) => {
   return async (req: NextApiRequest, res: NextApiResponse) => {
     const typeRequest = req.body.type;
@@ -19,6 +20,9 @@ export const clientTibiaRouteAdapter = (
         break;
       case `eventschedule`:
         response = await EventScheduleController.handle(req);
+        break;
+      case `login`:
+        response = await LoginClientController.handle(req.body);
         break;
     }
 

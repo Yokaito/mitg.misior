@@ -4,7 +4,7 @@ import {
 } from '@/sdk/api/infra/database';
 import { LoginFailedError } from '@/sdk/api/presentation/errors';
 import { badRequest } from '@/sdk/api/presentation/helpers';
-import bcrypt from 'bcrypt';
+import sha1 from 'sha1';
 
 export const LoginUseCase = async ({
   email,
@@ -18,7 +18,7 @@ export const LoginUseCase = async ({
     return badRequest(new LoginFailedError());
   }
 
-  const isValid = bcrypt.compareSync(password, account.password);
+  const isValid = sha1(password) === account.password;
 
   if (!isValid) {
     return badRequest(new LoginFailedError());
