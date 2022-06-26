@@ -103,7 +103,7 @@ export class LoginClientController implements Controller {
         optiontracking: false,
         premiumuntil: premiumDaysUpdated > 0 ? premiumDateExpireUnixTime : 0,
         returnernotification: false,
-        sessionkey: `${account.email}\n${account.password}`,
+        sessionkey: `${account.email}\n${request.password}`,
         showrewardnews: true,
         status: `active`,
         tornamentcyclephase: 1,
