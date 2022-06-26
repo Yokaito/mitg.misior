@@ -27,7 +27,8 @@ export const otConfigs = {
   server: {
     worldName: `Gardebra`,
     ip: `35.247.229.151`,
-    port: `7171`,
+    loginProtocolPort: 7171,
+    gameProtocolPort: 7172,
     pvpType: 2, // 0 = no-pvp, 1 = pvp, 2 = retro pvp
     worldid: 0,
     premiumIsFree: false,
