@@ -479,6 +479,8 @@ model player_taskhunt {
 model players {
   id                                                       Int                    @id @default(autoincrement())
   name                                                     String                 @unique(map: "players_unique") @db.VarChar(255)
+  ishidden                                                 Boolean                @default(false)
+  mainCharacter                                            Boolean                @default(false)
   group_id                                                 Int                    @default(1)
   account_id                                               Int                    @default(0) @db.UnsignedInt
   level                                                    Int                    @default(1)
@@ -631,6 +633,14 @@ model tile_store {
 
   @@index([house_id], map: "house_id")
   @@ignore
+}
+
+model towns {
+  id   Int    @id @default(autoincrement())
+  name String @unique @db.VarChar(255)
+  posx Int    @default(0)
+  posy Int    @default(0)
+  posz Int    @default(0)
 }
 
 model newsticker {
