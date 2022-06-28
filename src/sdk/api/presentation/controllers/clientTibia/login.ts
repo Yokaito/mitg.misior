@@ -9,6 +9,12 @@ import { unauthorizedClientTibia } from '@/sdk/api/presentation/helpers';
 import { CryptographyAdapter } from '@/sdk/api/infra/cryptography';
 import Joi from 'joi';
 import { TwoFactorAdapter } from '@/sdk/api/infra/authenticator';
+import env from '@/sdk/environment';
+
+/**
+ *  TODO - Add documentation
+ *  TODO - Make source canary use secret code inside database to match when gameWorldAuthenticator calls
+ */
 
 export class LoginClientController implements Controller {
   async handle(request: LoginClientControllerSpace.Request): Promise<any> {
@@ -40,24 +46,26 @@ export class LoginClientController implements Controller {
       );
     }
 
-    if (account.hasAuthenticator) {
-      if (!Object.hasOwn(value, `token`)) {
-        return unauthorizedClientTibia(
-          `Two factor authentication is required`,
-          6,
-        );
-      }
+    if (env.twoFactorAuthentication.enabled) {
+      if (account.hasAuthenticator) {
+        if (!Object.hasOwn(value, `token`)) {
+          return unauthorizedClientTibia(
+            `Two factor authentication is required`,
+            6,
+          );
+        }
 
-      const isValid = await validateCode(
-        value.token,
-        account.authenticatorSecret,
-      );
-
-      if (!isValid) {
-        return unauthorizedClientTibia(
-          `Two factor authentication is required`,
-          6,
+        const isValid = await validateCode(
+          value.token,
+          account.authenticatorSecret,
         );
+
+        if (!isValid) {
+          return unauthorizedClientTibia(
+            `Two factor authentication is required`,
+            6,
+          );
+        }
       }
     }
 
