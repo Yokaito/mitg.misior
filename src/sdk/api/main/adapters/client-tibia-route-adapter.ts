@@ -8,6 +8,14 @@ export const clientTibiaRouteAdapter = (
   LoginClientController: Controller,
 ) => {
   return async (req: NextApiRequest, res: NextApiResponse) => {
+    let status = 200;
+    if (!Object.hasOwn(req.body, `type`)) {
+      res.status(400).send({
+        error: `Missing type in request body`,
+      });
+      return;
+    }
+
     const typeRequest = req.body.type;
     let response = {};
 
@@ -24,8 +32,13 @@ export const clientTibiaRouteAdapter = (
       case `login`:
         response = await LoginClientController.handle(req.body);
         break;
+      default:
+        status = 400;
+        response = {
+          error: `Unknown type in request body`,
+        };
     }
 
-    res.status(200).json(response);
+    res.status(status).json(response);
   };
 };
