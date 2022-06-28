@@ -29,7 +29,7 @@ export const Home: Page = () => {
   return (
     <>
       <Head>
-        <title>{misiorWeb.otName} | Home</title>
+        <title>{`${misiorWeb.otName} | Home`}</title>
       </Head>
       <Layout>
         <Section title={t(`newsticker/title`)} padding="minimal">

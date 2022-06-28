@@ -15,7 +15,7 @@ export const CreateAccountPage: FC = () => {
   return (
     <>
       <Head>
-        <title>{misiorWeb.otName} | Create Account</title>
+        <title>{`${misiorWeb.otName} | Create Account`}</title>
       </Head>
       <Layout>
         <Section title={t(`account/create`)} padding="normal">
