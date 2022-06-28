@@ -8,15 +8,13 @@ import { createDateAsUTC } from '@/sdk/utils/date-format';
 import { unauthorizedClientTibia } from '@/sdk/api/presentation/helpers';
 import { CryptographyAdapter } from '@/sdk/api/infra/cryptography';
 import Joi from 'joi';
-
-/*
-  TODO - Implementar o campo de token de autenticação
-*/
+import { TwoFactorAdapter } from '@/sdk/api/infra/authenticator';
 
 export class LoginClientController implements Controller {
   async handle(request: LoginClientControllerSpace.Request): Promise<any> {
     const { value, error } = LoginClientControllerSchema.validate(request);
     const { compare } = CryptographyAdapter();
+    const { validateCode } = TwoFactorAdapter();
 
     if (error) {
       return unauthorizedClientTibia(error.message, 3, error);
@@ -40,6 +38,27 @@ export class LoginClientController implements Controller {
         `Tibia account email address or Tibia password is not correct`,
         3,
       );
+    }
+
+    if (account.hasAuthenticator) {
+      if (!Object.hasOwn(value, `token`)) {
+        return unauthorizedClientTibia(
+          `Two factor authentication is required`,
+          6,
+        );
+      }
+
+      const isValid = await validateCode(
+        value.token,
+        account.authenticatorSecret,
+      );
+
+      if (!isValid) {
+        return unauthorizedClientTibia(
+          `Two factor authentication is required`,
+          6,
+        );
+      }
     }
 
     const dbCharacters = await prisma.players.findMany({
