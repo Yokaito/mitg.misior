@@ -1,15 +1,17 @@
+import { CryptographyAdapter } from '@/sdk/api/infra/cryptography';
 import {
   DbGetAccountByEmail,
   DbUpdateAccountLastLogin,
 } from '@/sdk/api/infra/database';
 import { LoginFailedError } from '@/sdk/api/presentation/errors';
 import { badRequest } from '@/sdk/api/presentation/helpers';
-import sha1 from 'sha1';
 
 export const LoginUseCase = async ({
   email,
   password,
 }: LoginUseCaseSpace.Params) => {
+  const { compare } = CryptographyAdapter();
+
   const account = await DbGetAccountByEmail({
     email,
   });
@@ -18,7 +20,7 @@ export const LoginUseCase = async ({
     return badRequest(new LoginFailedError());
   }
 
-  const isValid = sha1(password) === account.password;
+  const isValid = compare(password, account.password);
 
   if (!isValid) {
     return badRequest(new LoginFailedError());

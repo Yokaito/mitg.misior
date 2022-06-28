@@ -1,12 +1,12 @@
 import { DbGetAccountByEmail } from '@/sdk/api/infra/database';
 import { Controller } from '@/sdk/api/presentation/protocols';
 import { prisma } from '@/sdk/lib/prisma';
-import sha1 from 'sha1';
 import createCharacter from '@/sdk/utils/create-character';
 import { otConfigs } from '@/misior';
 import { verifyPremiumTime } from '@/sdk/utils/premium-time';
 import { createDateAsUTC } from '@/sdk/utils/date-format';
 import { unauthorizedClientTibia } from '@/sdk/api/presentation/helpers';
+import { CryptographyAdapter } from '@/sdk/api/infra/cryptography';
 import Joi from 'joi';
 
 /*
@@ -16,6 +16,7 @@ import Joi from 'joi';
 export class LoginClientController implements Controller {
   async handle(request: LoginClientControllerSpace.Request): Promise<any> {
     const { value, error } = LoginClientControllerSchema.validate(request);
+    const { compare } = CryptographyAdapter();
 
     if (error) {
       return unauthorizedClientTibia(error.message, 3, error);
@@ -32,7 +33,7 @@ export class LoginClientController implements Controller {
       );
     }
 
-    const passwordIsValid = sha1(value.password) === account.password;
+    const passwordIsValid = compare(value.password, account.password);
 
     if (!passwordIsValid) {
       return unauthorizedClientTibia(
@@ -109,7 +110,7 @@ export class LoginClientController implements Controller {
         fpstracking: false,
         ispremium: otConfigs.server.premiumIsFree ? true : isPremium,
         isreturner: true,
-        lastlogintime: lastDayLoginUpdated,
+        lastlogintime: account.lastday,
         optiontracking: false,
         premiumuntil: premiumDaysUpdated > 0 ? premiumDateExpireUnixTime : 0,
         returnernotification: false,

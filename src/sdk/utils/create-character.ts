@@ -19,7 +19,7 @@ export const createCharacter = (player: players) => {
     ishidden: player.ishidden,
     istournamentparticipant: false,
     ismaincharacter: player.mainCharacter,
-    dailyrewardstate: player.isreward,
+    dailyrewardstate: player.isreward ? 1 : 0,
     remainingdailytournamentplaytime: false,
   };
 };
