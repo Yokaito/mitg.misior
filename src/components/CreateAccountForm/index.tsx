@@ -4,6 +4,7 @@ import { InputFormik } from '@/components/ui/InputFormik';
 import * as S from './styles';
 
 type AccountCreate = {
+  accountName: string;
   email: string;
   password: string;
   samePassword: string;
@@ -11,26 +12,33 @@ type AccountCreate = {
 };
 
 const CreateAccountSchema = Yup.object().shape({
+  accountName: Yup.string()
+    .min(3, `Mínimo 3 caracteres`)
+    .max(15, `Máximo 50 caracteres`)
+    .required(`Campo obrigatório`),
   email: Yup.string()
     .min(3, `Mínimo 3 caracteres`)
     .max(50, `Máximo 50 caracteres`)
-    .required(`Required`)
-    .email(`Invalid email`),
+    .required(`Email Obrigatório`)
+    .email(`Email Invalido`),
   password: Yup.string()
     .min(6, `Mínimo 6 caracteres`)
     .max(50, `Máximo 50 caracteres`)
-    .required(`Required`),
+    .required(`Senha Obrigatória`),
 
   samePassword: Yup.string()
-    .required(`Required`)
+    .required(`Confirme a senha`)
     .when(`password`, {
       is: (val: any) => (val && val.length > 0 ? true : false),
       then: Yup.string().oneOf([Yup.ref(`password`)], `As senhas não conferem`),
     }),
-  checkbox: Yup.boolean().default(false).oneOf([true], `Required`),
+  checkbox: Yup.boolean()
+    .default(false)
+    .oneOf([true], `Confirme que leu os termos`),
 });
 
 const initialValues: AccountCreate = {
+  accountName: ``,
   email: ``,
   password: ``,
   samePassword: ``,
@@ -54,13 +62,27 @@ export const CreateAccountForm = () => {
     <>
       <FormikProvider value={formik}>
         <S.FormikFormStyled>
-          <InputFormik label="Email" id="email" name="email" showLabel />
+          <InputFormik
+            label="Account"
+            id="accountName"
+            name="accountName"
+            showLabel
+            key="accountName"
+          />
+          <InputFormik
+            label="Email"
+            id="email"
+            name="email"
+            showLabel
+            key="email"
+          />
           <InputFormik
             label="Password"
             id="password"
             name="password"
             showLabel
             type="password"
+            key="password"
           />
           <InputFormik
             label="Confirm Password"
@@ -68,6 +90,7 @@ export const CreateAccountForm = () => {
             name="samePassword"
             showLabel
             type="password"
+            key="samePassword"
           />
           <Field type="checkbox" name="checkbox" id="checkbox" />
           <button type="submit">Submit</button>

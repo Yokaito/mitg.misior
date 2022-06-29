@@ -55,8 +55,6 @@ export const ToolTipWrapper = styled.div`
   }
 `;
 
-export const ErrorIcon = styled(CloseIcon)``;
-
 export const ErrorFeedback = styled.span`
   font-family: 'Martel';
   font-size: 14px;

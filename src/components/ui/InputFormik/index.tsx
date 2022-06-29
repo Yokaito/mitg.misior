@@ -1,7 +1,9 @@
 import { FieldHookConfig, useField } from 'formik';
+import Image from 'next/image';
 import { useState } from 'react';
-import RightIcon from '../Icons/Right';
 import * as S from './styles';
+import CloseIcon from '@/assets/images/helpers/false.png';
+import TrueIcon from '@/assets/images/helpers/true.png';
 
 type InputFormikProps = {
   label: string;
@@ -38,12 +40,12 @@ export const InputFormik = ({
             {meta.error ? (
               <>
                 <S.ToolTipWrapper>
-                  <S.ErrorIcon />
+                  <Image src={CloseIcon} alt="icon error" />
                   <S.ToolTipText>{meta.error}</S.ToolTipText>
                 </S.ToolTipWrapper>
               </>
             ) : (
-              <RightIcon />
+              <Image src={TrueIcon} alt="icon alright" />
             )}
           </S.Feedback>
         ) : null}
