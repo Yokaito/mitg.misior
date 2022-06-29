@@ -5,6 +5,23 @@ const enUs = {
   'account/my_account': `My Account`,
   'account/logout': `Logout`,
   'button/login': `Login`,
+  //* validation translation */
+  'validation/minLength': `Minimum {{var}} characters`,
+  'validation/maxLength': `Maximum {{var}} characters`,
+  //* validation translation */
+  // * Create Account Translation */
+  'createAccount/accountName': `Account Name`,
+  'createAccount/accountNameRequired': `Account Name is required`,
+  'createAccount/email': `Email`,
+  'createAccount/emailRequired': `Email is required`,
+  'createAccount/emailInvalid': `Email is invalid`,
+  'createAccount/password': `Password`,
+  'createAccount/passwordRequired': `Password is required`,
+  'createAccount/confirmPassword': `Confirm Password`,
+  'createAccount/confirmPasswordInvalid': `Passwords do not match`,
+  'createAccount/confirmPasswordRequired': `Confirm Password is required`,
+  'createAccount/readTerms': `I have read and agree to the Terms of Service`,
+  // * Create Account Translation */
 };
 
 export default enUs;
