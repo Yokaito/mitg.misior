@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { FC } from 'react';
 import * as S from './styles';
 import Artwork from '@/assets/images/general/tibia-logo-artwork.gif';
+import { otConfigs } from '@/misior';
 
 interface BoxPlayProps {
   showLogo?: boolean;
@@ -13,7 +14,10 @@ export const BoxPlay: FC<BoxPlayProps> = ({ children, showLogo }) => {
       {showLogo && (
         <S.LogoArtworkWrapper>
           <Link href="/">
-            <S.LogoArtwork src={Artwork} />
+            <S.LogoArtwork
+              src={Artwork}
+              alt={`logo ${otConfigs.server.worldName}`}
+            />
           </Link>
         </S.LogoArtworkWrapper>
       )}
