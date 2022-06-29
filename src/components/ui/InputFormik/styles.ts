@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import CloseIcon from '../Icons/Close';
 
 export const Input = styled.input`
   width: 100%;
