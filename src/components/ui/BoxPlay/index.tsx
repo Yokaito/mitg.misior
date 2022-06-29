@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { FC } from 'react';
 import * as S from './styles';
+import Artwork from '@/assets/images/general/tibia-logo-artwork.gif';
 
 interface BoxPlayProps {
   showLogo?: boolean;
@@ -10,9 +11,11 @@ export const BoxPlay: FC<BoxPlayProps> = ({ children, showLogo }) => {
   return (
     <S.BoxPlayWrapper>
       {showLogo && (
-        <Link href="/">
-          <S.LogoArtwork />
-        </Link>
+        <S.LogoArtworkWrapper>
+          <Link href="/">
+            <S.LogoArtwork src={Artwork} />
+          </Link>
+        </S.LogoArtworkWrapper>
       )}
       <S.BoxPlayBorder />
       <S.BoxPlayContent>

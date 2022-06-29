@@ -2,10 +2,10 @@ import styled from 'styled-components';
 
 import BoxTop from '@/assets/images/general/box-top.gif';
 import BoxBottom from '@/assets/images/general/box-bottom.gif';
-import Artwork from '@/assets/images/general/tibia-logo-artwork.gif';
 
 import Chain from '@/assets/images/borders/chain.gif';
 import LoginBoxBackground from '@/assets/images/loginbox/loginbox-background.gif';
+import Image from 'next/image';
 
 export const BoxPlayWrapper = styled.div`
   display: grid;
@@ -14,9 +14,8 @@ export const BoxPlayWrapper = styled.div`
   position: relative;
 `;
 
-export const LogoArtwork = styled.span`
+export const LogoArtworkWrapper = styled.div`
   position: absolute;
-  background-image: ${`url(${Artwork.src})`};
   background-repeat: no-repeat;
   width: 196px;
   height: 158px;
@@ -24,6 +23,8 @@ export const LogoArtwork = styled.span`
   left: -10px;
   cursor: pointer;
 `;
+
+export const LogoArtwork = styled(Image)``;
 
 type BoxPlayBorderProps = {
   bottom?: boolean;
