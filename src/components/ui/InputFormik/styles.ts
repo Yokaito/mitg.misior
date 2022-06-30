@@ -2,15 +2,15 @@ import styled from 'styled-components';
 
 export const Input = styled.input`
   width: 100%;
-  font-size: 0.9rem;
+  font-size: ${({ theme }) => theme.typography.text.xsmall};
   padding: 6px 30px 6px 6px;
-  outline: 0.1px solid ${({ theme }) => theme.textColors.quaternary};
+  outline: 0.1px solid ${({ theme }) => theme.colors.quaternary.default};
 `;
 
 export const Label = styled.label`
-  font-family: 'Martel';
-  font-size: 14px;
-  color: ${({ theme }) => theme.textColors.quaternary};
+  font-family: ${({ theme }) => theme.typography.fontsFamily.martel};
+  font-size: ${({ theme }) => theme.typography.text.small};
+  color: ${({ theme }) => theme.colors.quaternary.default};
 `;
 
 export const InputWithFeedback = styled.div`
@@ -30,9 +30,9 @@ export const Feedback = styled.span`
 export const ToolTipText = styled.span`
   visibility: hidden;
   width: max-content;
-  border: 1px solid ${({ theme }) => theme.backgrounds.quaternary};
-  background-color: ${({ theme }) => theme.backgrounds.septenary};
-  color: ${({ theme }) => theme.textColors.quaternary};
+  border: 1px solid ${({ theme }) => theme.backgrounds.quaternary.default};
+  background-color: ${({ theme }) => theme.backgrounds.septenary.default};
+  color: ${({ theme }) => theme.colors.quaternary.default};
   text-align: center;
   border-radius: 6px;
   padding: 5px 10px;
@@ -55,9 +55,9 @@ export const ToolTipWrapper = styled.div`
 `;
 
 export const ErrorFeedback = styled.span`
-  font-family: 'Martel';
-  font-size: 14px;
-  color: ${({ theme }) => theme.textColors.quaternary};
+  font-family: ${({ theme }) => theme.typography.fontsFamily.martel};
+  font-size: ${({ theme }) => theme.typography.text.small};
+  color: ${({ theme }) => theme.colors.quaternary.default};
 `;
 
 type InputWrapperProps = {
@@ -67,12 +67,20 @@ type InputWrapperProps = {
 
 export const InputWrapper = styled.div<InputWrapperProps>`
   ${Input} {
-    outline: ${({ containError, showError }) =>
-      showError ? (containError ? `1px solid red` : `1px solid green`) : null};
+    outline: ${({ containError, showError, theme }) =>
+      showError
+        ? containError
+          ? `1px solid ${theme.system.error}`
+          : `1px solid ${theme.system.success}`
+        : null};
   }
 
   ${Label} {
-    color: ${({ containError, showError }) =>
-      showError ? (containError ? `red` : `green`) : null};
+    color: ${({ containError, showError, theme }) =>
+      showError
+        ? containError
+          ? `${theme.system.error}`
+          : `${theme.system.success}`
+        : null};
   }
 `;

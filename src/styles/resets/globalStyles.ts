@@ -45,11 +45,12 @@ export default createGlobalStyle`
 
   html, body, #root {
     height: 100vh;
-    background-color: ${({ theme }) => theme.backgrounds.root};
+    background-color: ${({ theme }) => theme.backgrounds.root.default};
     background-image: ${`url(${Background.src})`};
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center top;
+    font-size: ${({ theme }) => theme.typography.baseFontSize};
   }
 
   *, button, input {

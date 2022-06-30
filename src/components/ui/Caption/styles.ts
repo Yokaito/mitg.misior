@@ -11,7 +11,7 @@ export const CaptionWrapper = styled.div`
 
 export const CaptionHeader = styled.div`
   display: grid;
-  background-color: ${({ theme }) => theme.backgrounds.quaternary};
+  background-color: ${({ theme }) => theme.backgrounds.quaternary.default};
   grid-template-columns: 3px auto 3px;
   grid-template-rows: 4px minmax(15px, auto) 4px;
   grid-template-areas:

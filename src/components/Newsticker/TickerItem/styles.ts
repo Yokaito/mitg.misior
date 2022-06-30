@@ -18,7 +18,7 @@ export const TickerItemWrapper = styled.div<TicketItemProps>`
   background-color: transparent;
   grid-template-columns: 16px 6rem auto 24px;
   cursor: pointer;
-  color: ${({ theme }) => theme.textColors.quaternary};
+  color: ${({ theme }) => theme.colors.quaternary.default};
 `;
 
 export const TickerDate = styled.div`

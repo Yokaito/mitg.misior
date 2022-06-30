@@ -8,7 +8,7 @@ type InputWrapperProps = {
 export const InputWrapper = styled(Field)<InputWrapperProps>`
   border: ${({ hasError }) => (hasError ? `1px solid red` : `1px solid #ccc`)};
   width: 100%;
-  font-size: 0.9rem;
+  font-size: ${({ theme }) => theme.typography.text.small};
   padding: 6px;
 `;
 

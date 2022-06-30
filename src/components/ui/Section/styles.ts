@@ -14,8 +14,8 @@ export const SectionWrapper = styled.section`
   height: max-content;
   display: flex;
   flex-direction: column;
-  border-right: 2px solid ${({ theme }) => theme.borders.primary};
-  border-left: 2px solid ${({ theme }) => theme.borders.primary};
+  border-right: 2px solid ${({ theme }) => theme.borders.primary.default};
+  border-left: 2px solid ${({ theme }) => theme.borders.primary.default};
   background-color: #debb9d;
   z-index: 0;
 `;
@@ -35,8 +35,8 @@ const sectionContentWrapperPadding = ({ padding }: ContentProps) => {
 };
 
 export const SectionContentWrapper = styled.div<ContentProps>`
-  border: 1px solid ${({ theme }) => theme.borders.secondary};
-  background-color: ${({ theme }) => theme.backgrounds.primary};
+  border: 1px solid ${({ theme }) => theme.borders.secondary.default};
+  background-color: ${({ theme }) => theme.backgrounds.primary.default};
   padding: ${({ padding }) => sectionContentWrapperPadding({ padding })};
   margin: 0.4rem 0.25rem 0.25rem;
 `;
@@ -95,8 +95,8 @@ export const SectionHeader = styled.div<SectionHeaderProps>`
 
 export const SectionTitle = styled(FondamentoTitle)`
   margin-left: 1rem;
-  font-weight: 400;
-  font-size: 1.25rem;
+  font-weight: ${({ theme }) => theme.typography.weight.regular};
+  font-size: ${({ theme }) => theme.typography.text.large};
   user-select: none;
   text-transform: capitalize;
 `;
