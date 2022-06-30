@@ -31,7 +31,7 @@ export const otConfigs = {
     gameProtocolPort: 7172,
     pvpType: 2, // 0 = no-pvp, 1 = pvp, 2 = retro pvp
     worldid: 0,
-    premiumIsFree: false,
+    premiumIsFree: true,
     location: `BRA`,
     battleEyeActive: false,
   },
