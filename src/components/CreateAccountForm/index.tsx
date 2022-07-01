@@ -57,7 +57,7 @@ export const CreateAccountForm = () => {
   });
 
   const handleSubmit = (values: AccountCreate) => {
-    console.log(CreateAccountSchema.isValidSync(values));
+    if (!CreateAccountSchema.isValidSync(values)) return;
 
     console.log(values);
   };
@@ -122,7 +122,7 @@ export const CreateAccountForm = () => {
           </InnerContainer>
           <InnerContainer>
             <S.FormikButtonSubmitWrapper>
-              <ButtonForm extend>Submit</ButtonForm>
+              <ButtonForm extend>{t(`createAccount/button`)}</ButtonForm>
             </S.FormikButtonSubmitWrapper>
           </InnerContainer>
         </S.FormikFormStyled>

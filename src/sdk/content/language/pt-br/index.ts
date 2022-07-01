@@ -24,6 +24,7 @@ const ptBr = {
   'createAccount/readTerms': `Por favor, selecione para aceitar os termos de uso`,
   'createAccount/readTermsRequired': `Confirme que leu os termos`,
   'createAccount/createTermsText': `Eu li e concordo com os termos de uso de`,
+  'createAccount/button': `Criar Conta`,
   // * Create Account Translation */
 };
 

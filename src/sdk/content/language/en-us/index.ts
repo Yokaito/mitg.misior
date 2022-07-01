@@ -24,7 +24,7 @@ const enUs = {
   'createAccount/readTerms': `I have read and agree to the Terms of Service`,
   'createAccount/readTermsRequired': `Confirm that you have read the terms`,
   'createAccount/createTermsText': `I have read and agree to the terms of use of`,
-
+  'createAccount/button': `Create Account`,
   // * Create Account Translation */
 };
 
