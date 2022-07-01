@@ -21,7 +21,7 @@ const enUs = {
   'createAccount/confirmPassword': `Confirm Password`,
   'createAccount/confirmPasswordInvalid': `Passwords do not match`,
   'createAccount/confirmPasswordRequired': `Confirm Password is required`,
-  'createAccount/readTerms': `I have read and agree to the Terms of Service`,
+  'createAccount/readTerms': `Please select the following check box:`,
   'createAccount/readTermsRequired': `Confirm that you have read the terms`,
   'createAccount/createTermsText': `I have read and agree to the terms of use of`,
   'createAccount/button': `Create Account`,
