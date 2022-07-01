@@ -22,6 +22,9 @@ const enUs = {
   'createAccount/confirmPasswordInvalid': `Passwords do not match`,
   'createAccount/confirmPasswordRequired': `Confirm Password is required`,
   'createAccount/readTerms': `I have read and agree to the Terms of Service`,
+  'createAccount/readTermsRequired': `Confirm that you have read the terms`,
+  'createAccount/createTermsText': `I have read and agree to the terms of use of`,
+
   // * Create Account Translation */
 };
 

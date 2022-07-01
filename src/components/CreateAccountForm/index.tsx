@@ -1,10 +1,12 @@
 import * as Yup from 'yup';
 import { FormikProvider, useFormik } from 'formik';
 import { InputFormik } from '@/components/ui/InputFormik';
-import { CheckBoxFormik } from '@/components/ui/CheckBoxFormik';
+import { CheckBoxRulesFormik } from './CheckBoxRules';
 import * as S from './styles';
 import useTranslation from '@/sdk/hooks/useTranslation';
 import InnerContainer from '@/components/ui/shared/InnerContainer';
+import ButtonForm from '../ui/ButtonForm';
+import { otConfigs } from '@/misior';
 
 type AccountCreate = {
   accountName: string;
@@ -51,7 +53,7 @@ export const CreateAccountForm = () => {
       }),
     checkbox: Yup.boolean()
       .default(false)
-      .oneOf([true], t(`createAccount/readTerms`)),
+      .oneOf([true], t(`createAccount/readTermsRequired`)),
   });
 
   const handleSubmit = (values: AccountCreate) => {
@@ -108,17 +110,20 @@ export const CreateAccountForm = () => {
             </S.FormikFormWrapper>
           </InnerContainer>
           <InnerContainer>
-            <CheckBoxFormik
+            <CheckBoxRulesFormik
               name="checkbox"
               id="checkbox"
-              label="Please select the following check box:"
+              label={t(`createAccount/readTerms`)}
               showLabel
-              terms="I agree to the"
+              terms={t(`createAccount/createTermsText`)}
+              termsWithStyle={`${otConfigs.server.worldName}`}
               urlToTerms="/terms"
             />
           </InnerContainer>
           <InnerContainer>
-            <button type="submit">Submit</button>
+            <S.FormikButtonSubmitWrapper>
+              <ButtonForm extend>Submit</ButtonForm>
+            </S.FormikButtonSubmitWrapper>
           </InnerContainer>
         </S.FormikFormStyled>
       </FormikProvider>

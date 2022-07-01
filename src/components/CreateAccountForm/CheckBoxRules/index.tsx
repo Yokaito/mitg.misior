@@ -1,7 +1,7 @@
 import { FieldHookConfig, useField } from 'formik';
 import { useState } from 'react';
 import * as S from './styles';
-import { otConfigs } from '@/misior';
+
 import Link from 'next/link';
 
 type CheckBoxFormikProps = {
@@ -9,13 +9,15 @@ type CheckBoxFormikProps = {
   showLabel?: boolean;
   terms?: string;
   urlToTerms?: string;
+  termsWithStyle?: string;
 };
 
-export const CheckBoxFormik = ({
+export const CheckBoxRulesFormik = ({
   label,
   showLabel,
   terms,
   urlToTerms,
+  termsWithStyle,
   ...props
 }: CheckBoxFormikProps & FieldHookConfig<string>) => {
   const [field, meta] = useField(props);
@@ -41,10 +43,7 @@ export const CheckBoxFormik = ({
           <Link href={urlToTerms || `/`}>
             <S.CheckBoxText>
               {terms}
-              <S.TermsAndConditions>
-                {otConfigs.server.worldName}
-                {` rules`}
-              </S.TermsAndConditions>
+              <S.TermsAndConditions>{termsWithStyle}</S.TermsAndConditions>
             </S.CheckBoxText>
           </Link>
         </S.CheckBoxWithText>
@@ -55,4 +54,4 @@ export const CheckBoxFormik = ({
   );
 };
 
-export default CheckBoxFormik;
+export default CheckBoxRulesFormik;

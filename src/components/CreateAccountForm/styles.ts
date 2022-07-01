@@ -23,3 +23,9 @@ export const FormikFormWrapper = styled.div`
   flex-direction: column;
   gap: 0.8rem;
 `;
+
+export const FormikButtonSubmitWrapper = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: center;
+`;

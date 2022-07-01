@@ -21,7 +21,9 @@ const ptBr = {
   'createAccount/confirmPassword': `Confirme a senha`,
   'createAccount/confirmPasswordInvalid': `As senhas não conferem`,
   'createAccount/confirmPasswordRequired': `Confirmar Senha é obrigatório`,
-  'createAccount/readTerms': `Confirme que leu os termos`,
+  'createAccount/readTerms': `Por favor, selecione para aceitar os termos de uso`,
+  'createAccount/readTermsRequired': `Confirme que leu os termos`,
+  'createAccount/createTermsText': `Eu li e concordo com os termos de uso de`,
   // * Create Account Translation */
 };
 
