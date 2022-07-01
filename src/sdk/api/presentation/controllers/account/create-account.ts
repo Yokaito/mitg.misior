@@ -1,8 +1,14 @@
 import Joi from 'joi';
 import { badRequest, noContent, serverError } from '../../helpers';
-import { DbGetAccountByEmail } from '@/sdk/api/infra/database';
+import {
+  DbGetAccountByEmail,
+  DbGetAccountByName,
+} from '@/sdk/api/infra/database';
 import { Controller, HttpResponse } from '../../protocols';
-import { EmailIsAlreadyInUseError } from '../../errors';
+import {
+  EmailIsAlreadyInUseError,
+  NameIsAlreadyInUseError,
+} from '../../errors';
 
 export class CreateAccountController implements Controller {
   async handle(
@@ -15,10 +21,16 @@ export class CreateAccountController implements Controller {
         return badRequest(error);
       }
 
-      const account = await DbGetAccountByEmail({ email: value.email });
+      const accountEmail = await DbGetAccountByEmail({ email: value.email });
 
-      if (account) {
+      if (accountEmail) {
         return badRequest(new EmailIsAlreadyInUseError(`email`));
+      }
+
+      const accountName = await DbGetAccountByName({ name: value.accountName });
+
+      if (accountName) {
+        return badRequest(new NameIsAlreadyInUseError(`accountName`));
       }
 
       return noContent();

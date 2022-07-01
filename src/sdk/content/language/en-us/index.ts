@@ -25,6 +25,8 @@ const enUs = {
   'createAccount/readTermsRequired': `Confirm that you have read the terms`,
   'createAccount/createTermsText': `I have read and agree to the terms of use of`,
   'createAccount/button': `Create Account`,
+  'createAccount/accountNameIsAlreadyInUse': `Account Name is already in use`,
+  'createAccount/emailIsAlreadyInUse': `Email is already in use`,
   // * Create Account Translation */
 };
 

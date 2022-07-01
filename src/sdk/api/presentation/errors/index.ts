@@ -7,3 +7,4 @@ export * from './RateLimitExceeded';
 export * from './IdNotFound';
 export * from './EmailNotFound';
 export * from './EmailIsAlreadyInUse';
+export * from './NameIsAlreadyInUse';

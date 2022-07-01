@@ -68,11 +68,23 @@ export const CreateAccountForm = () => {
         router.push(`/login`);
       }
     } catch (error: any) {
-      if (Object.hasOwn(error?.response?.data?.error, `paramName`)) {
-        formik.setFieldError(
-          error.response.data.error.paramName,
-          error.response.data.error.message,
-        );
+      if (`paramName` in error?.response?.data?.error) {
+        const paramNameResponse = error.response.data.error.paramName;
+
+        switch (paramNameResponse) {
+          case `accountName`:
+            formik.setFieldError(
+              `accountName`,
+              t(`createAccount/accountNameIsAlreadyInUse`),
+            );
+            break;
+          case `email`:
+            formik.setFieldError(
+              `email`,
+              t(`createAccount/emailIsAlreadyInUse`),
+            );
+            break;
+        }
       }
     }
   };
