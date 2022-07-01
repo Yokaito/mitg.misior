@@ -11,6 +11,7 @@ export const Label = styled.label`
   font-family: ${({ theme }) => theme.typography.fontsFamily.martel};
   font-size: ${({ theme }) => theme.typography.text.small};
   color: ${({ theme }) => theme.colors.quaternary.default};
+  font-weight: ${({ theme }) => theme.typography.weight.bold};
 `;
 
 export const InputWithFeedback = styled.div`
@@ -66,6 +67,10 @@ type InputWrapperProps = {
 };
 
 export const InputWrapper = styled.div<InputWrapperProps>`
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+
   ${Input} {
     outline: ${({ containError, showError, theme }) =>
       showError
@@ -75,7 +80,7 @@ export const InputWrapper = styled.div<InputWrapperProps>`
         : null};
   }
 
-  ${Label} {
+  ${ErrorFeedback} {
     color: ${({ containError, showError, theme }) =>
       showError
         ? containError

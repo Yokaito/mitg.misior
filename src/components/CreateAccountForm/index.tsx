@@ -1,8 +1,10 @@
 import * as Yup from 'yup';
-import { Field, FormikProvider, useFormik } from 'formik';
+import { FormikProvider, useFormik } from 'formik';
 import { InputFormik } from '@/components/ui/InputFormik';
+import { CheckBoxFormik } from '@/components/ui/CheckBoxFormik';
 import * as S from './styles';
 import useTranslation from '@/sdk/hooks/useTranslation';
+import InnerContainer from '@/components/ui/shared/InnerContainer';
 
 type AccountCreate = {
   accountName: string;
@@ -68,41 +70,56 @@ export const CreateAccountForm = () => {
     <>
       <FormikProvider value={formik}>
         <S.FormikFormStyled>
-          <InputFormik
-            label={t(`createAccount/accountName`)}
-            id="accountName"
-            name="accountName"
-            showLabel
-            key="accountName"
-          />
-          <InputFormik
-            label={t(`createAccount/email`)}
-            id="email"
-            name="email"
-            showLabel
-            key="email"
-            autoComplete="email"
-          />
-          <InputFormik
-            label={t(`createAccount/password`)}
-            id="password"
-            name="password"
-            showLabel
-            type="password"
-            key="password"
-            autoComplete="new-password"
-          />
-          <InputFormik
-            label={t(`createAccount/confirmPassword`)}
-            id="samePassword"
-            name="samePassword"
-            showLabel
-            type="password"
-            key="samePassword"
-            autoComplete="new-password"
-          />
-          <Field type="checkbox" name="checkbox" id="checkbox" />
-          <button type="submit">Submit</button>
+          <InnerContainer>
+            <S.FormikFormWrapper>
+              <InputFormik
+                label={t(`createAccount/accountName`)}
+                id="accountName"
+                name="accountName"
+                showLabel
+                key="accountName"
+              />
+              <InputFormik
+                label={t(`createAccount/email`)}
+                id="email"
+                name="email"
+                showLabel
+                key="email"
+                autoComplete="email"
+              />
+              <InputFormik
+                label={t(`createAccount/password`)}
+                id="password"
+                name="password"
+                showLabel
+                type="password"
+                key="password"
+                autoComplete="new-password"
+              />
+              <InputFormik
+                label={t(`createAccount/confirmPassword`)}
+                id="samePassword"
+                name="samePassword"
+                showLabel
+                type="password"
+                key="samePassword"
+                autoComplete="new-password"
+              />
+            </S.FormikFormWrapper>
+          </InnerContainer>
+          <InnerContainer>
+            <CheckBoxFormik
+              name="checkbox"
+              id="checkbox"
+              label="Please select the following check box:"
+              showLabel
+              terms="I agree to the"
+              urlToTerms="/terms"
+            />
+          </InnerContainer>
+          <InnerContainer>
+            <button type="submit">Submit</button>
+          </InnerContainer>
         </S.FormikFormStyled>
       </FormikProvider>
     </>

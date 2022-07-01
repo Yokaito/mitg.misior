@@ -15,5 +15,11 @@ export const InputWrapper = styled(Field)<InputWrapperProps>`
 export const FormikFormStyled = styled(Form)`
   display: flex;
   flex-direction: column;
+  gap: 1rem;
+`;
+
+export const FormikFormWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
   gap: 0.8rem;
 `;

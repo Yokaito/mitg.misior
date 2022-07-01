@@ -13,11 +13,11 @@ export const BoxPlay: FC<BoxPlayProps> = ({ children, showLogo }) => {
   return (
     <S.BoxPlayWrapper>
       {showLogo && (
-        <S.LogoArtworkWrapper>
-          <Link href="/">
+        <Link href="/">
+          <S.LogoArtworkWrapper>
             <Image src={Artwork} alt={`logo ${otConfigs.server.worldName}`} />
-          </Link>
-        </S.LogoArtworkWrapper>
+          </S.LogoArtworkWrapper>
+        </Link>
       )}
       <S.BoxPlayBorder />
       <S.BoxPlayContent>
