@@ -31,7 +31,9 @@ export const CheckBoxRulesFormik = ({
         containError={meta.error ? true : false}
         showError={showFeedback ? true : false}
       >
-        {showLabel && <S.CheckBoxLabel>{label}</S.CheckBoxLabel>}
+        {showLabel && (
+          <S.CheckBoxLabel htmlFor={props.id}>{label}</S.CheckBoxLabel>
+        )}
         <S.CheckBoxWithText>
           <S.CheckBox
             {...props}
