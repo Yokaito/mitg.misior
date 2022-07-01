@@ -6,3 +6,4 @@ export * from './LoginFailedError';
 export * from './RateLimitExceeded';
 export * from './IdNotFound';
 export * from './EmailNotFound';
+export * from './EmailIsAlreadyInUse';

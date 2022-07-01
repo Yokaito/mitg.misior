@@ -7,6 +7,8 @@ import useTranslation from '@/sdk/hooks/useTranslation';
 import InnerContainer from '@/components/ui/shared/InnerContainer';
 import ButtonForm from '../ui/ButtonForm';
 import { otConfigs } from '@/misior';
+import { api } from '@/sdk/lib/swr';
+import { useRouter } from 'next/router';
 
 type AccountCreate = {
   accountName: string;
@@ -26,6 +28,7 @@ const initialValues: AccountCreate = {
 
 export const CreateAccountForm = () => {
   const { t } = useTranslation();
+  const router = useRouter();
 
   const CreateAccountSchema = Yup.object().shape({
     accountName: Yup.string()
@@ -33,7 +36,7 @@ export const CreateAccountForm = () => {
       .max(15, t(`validation/maxLength`, 15))
       .required(t(`createAccount/accountNameRequired`)),
     email: Yup.string()
-      .min(3, t(`validation/minLength`, 3))
+      .min(5, t(`validation/minLength`, 5))
       .max(50, t(`validation/maxLength`, 50))
       .required(t(`createAccount/emailRequired`))
       .email(t(`createAccount/emailInvalid`)),
@@ -56,10 +59,22 @@ export const CreateAccountForm = () => {
       .oneOf([true], t(`createAccount/readTermsRequired`)),
   });
 
-  const handleSubmit = (values: AccountCreate) => {
-    if (!CreateAccountSchema.isValidSync(values)) return;
+  const handleSubmit = async (values: AccountCreate) => {
+    if (!formik.isValid) return;
 
-    console.log(values);
+    try {
+      const data = await api.post(`/api/account/create`, values);
+      if (data.status < 300) {
+        router.push(`/login`);
+      }
+    } catch (error: any) {
+      if (Object.hasOwn(error?.response?.data?.error, `paramName`)) {
+        formik.setFieldError(
+          error.response.data.error.paramName,
+          error.response.data.error.message,
+        );
+      }
+    }
   };
 
   const formik = useFormik({
