@@ -78,6 +78,11 @@ export const defaultTheme: DefaultTheme = {
       darken: lightenDarkenColor(`#d4c0a1`, -20),
       lighten: lightenDarkenColor(`#d4c0a1`, 20),
     },
+    octonary: {
+      default: `#14433F`,
+      darken: lightenDarkenColor(`#14433F`, -20),
+      lighten: lightenDarkenColor(`#14433F`, 20),
+    },
   },
   shadows: {
     primary: {
@@ -111,6 +116,11 @@ export const defaultTheme: DefaultTheme = {
       default: `#faf0d7`,
       darken: lightenDarkenColor(`#faf0d7`, -20),
       lighten: lightenDarkenColor(`#faf0d7`, 20),
+    },
+    quinary: {
+      default: `#4b7874`,
+      darken: lightenDarkenColor(`#4b7874`, -20),
+      lighten: lightenDarkenColor(`#4b7874`, 20),
     },
   },
   system: {

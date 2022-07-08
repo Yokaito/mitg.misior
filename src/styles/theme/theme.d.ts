@@ -78,6 +78,11 @@ declare module 'styled-components' {
         darken: string;
         lighten: string;
       };
+      octonary: {
+        default: string;
+        darken: string;
+        lighten: string;
+      };
     };
     shadows: {
       primary: {
@@ -108,6 +113,11 @@ declare module 'styled-components' {
         lighten: string;
       };
       quaternary: {
+        default: string;
+        darken: string;
+        lighten: string;
+      };
+      quinary: {
         default: string;
         darken: string;
         lighten: string;
