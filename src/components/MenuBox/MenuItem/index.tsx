@@ -59,8 +59,8 @@ export const MenuItem: FC<MenuItemProps> = ({
             <Image
               src={icon}
               alt={`${text} icon`}
-              width={32}
-              height={32}
+              width="32px"
+              height="32px"
             ></Image>
           </S.MenuItemIcon>
           <S.MenuItemText>{text}</S.MenuItemText>
