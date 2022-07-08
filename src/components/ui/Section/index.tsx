@@ -1,10 +1,13 @@
 import { FC } from 'react';
 import Border from '../Border';
+import {
+  BackgroundBar,
+  BackgroundBarPropsComponent,
+} from '../shared/BackgroundBar';
 
 import * as S from './styles';
-import { SectionHeaderProps } from './styles';
 
-export interface SectionProps extends SectionHeaderProps {
+export interface SectionProps extends BackgroundBarPropsComponent {
   title: string;
   padding?: 'minimal' | 'normal' | 'large';
 }
@@ -17,10 +20,9 @@ export const Section: FC<SectionProps> = ({
 }) => {
   return (
     <S.SectionWrapper>
-      <Border />
-      <S.SectionHeader typeBackground={typeBackground}>
+      <BackgroundBar typeBackground={typeBackground}>
         <S.SectionTitle>{title}</S.SectionTitle>
-      </S.SectionHeader>
+      </BackgroundBar>
       <S.SectionContentWrapper padding={padding}>
         {children}
       </S.SectionContentWrapper>
