@@ -26,6 +26,9 @@ export const LayoutWrapper = styled.div`
 
 export const MainContentWrapper = styled.section`
   grid-area: MC;
+  gap: 1.5rem;
+  display: flex;
+  flex-direction: column;
 `;
 
 export const CopyRightWrapper = styled.div`

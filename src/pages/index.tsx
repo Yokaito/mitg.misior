@@ -35,12 +35,14 @@ export const Home: Page = () => {
         <Section title={t(`newsticker/title`)} padding="minimal">
           <Newsticker />
         </Section>
-        <button onClick={handleClickLanguage}>{locale}</button>
-        <div>
-          <button onClick={() => signIn(`credentials`)}>
-            Login Credentials
-          </button>
-        </div>
+        <Section title="Teste" padding="minimal">
+          <button onClick={handleClickLanguage}>{locale}</button>
+          <div>
+            <button onClick={() => signIn(`credentials`)}>
+              Login Credentials
+            </button>
+          </div>
+        </Section>
       </Layout>
     </>
   );
