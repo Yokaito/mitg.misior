@@ -56,7 +56,12 @@ export const MenuItem: FC<MenuItemProps> = ({
         <S.MenuItemFeedback active={isOpen} />
         <S.MenuItemContent>
           <S.MenuItemIcon>
-            <Image src={icon} alt={`${text} icon`}></Image>
+            <Image
+              src={icon}
+              alt={`${text} icon`}
+              width={32}
+              height={32}
+            ></Image>
           </S.MenuItemIcon>
           <S.MenuItemText>{text}</S.MenuItemText>
         </S.MenuItemContent>
