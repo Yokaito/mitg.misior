@@ -28,6 +28,11 @@ const ptBr = {
   'createAccount/accountNameIsAlreadyInUse': `Nome da conta já está em uso`,
   'createAccount/emailIsAlreadyInUse': `Email já está em uso`,
   // * Create Account Translation */
+  // * Not Found Translation */
+  'notFound/section': `Não Encontrado`,
+  'notFound/title': `Oops 404! A página não pode ser encontrada.`,
+  'notFound/text': `Desculpe, mas a página que você está procurando não pode ser encontrada ou não existe.`,
+  // * Not Found Translation */
 };
 
 export default ptBr;

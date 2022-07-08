@@ -28,6 +28,12 @@ const enUs = {
   'createAccount/accountNameIsAlreadyInUse': `Account Name is already in use`,
   'createAccount/emailIsAlreadyInUse': `Email is already in use`,
   // * Create Account Translation */
+  // * Not Found Translation */
+  'notFound/section': `Not Found`,
+  'notFound/title': `Oops 404! That page can’t be found.`,
+  'notFound/text': `Sorry, but the page you are looking for was either not found or does not exist.
+  Try refreshing the page or click the button below to go back to the Homepage.`,
+  // * Not Found Translation */
 };
 
 export default enUs;
