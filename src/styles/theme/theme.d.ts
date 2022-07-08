@@ -147,6 +147,7 @@ declare module 'styled-components' {
         bold: number;
       };
       text: {
+        xxxsmall: string;
         xxsmall: string;
         xsmall: string;
         small: string;

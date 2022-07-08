@@ -153,6 +153,7 @@ export const defaultTheme: DefaultTheme = {
       h6: `1.5rem`,
     },
     text: {
+      xxxsmall: `0.7rem`,
       xxsmall: `0.875rem`,
       xsmall: `0.75rem`,
       small: `0.875rem`,

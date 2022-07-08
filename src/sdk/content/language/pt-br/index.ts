@@ -33,6 +33,11 @@ const ptBr = {
   'notFound/title': `Oops 404! A página não pode ser encontrada.`,
   'notFound/text': `Desculpe, mas a página que você está procurando não pode ser encontrada ou não existe.`,
   // * Not Found Translation */
+  // * Copyright Translation */
+  'copyright/title': `Copyright by Misior. Todos os direitos reservados.`,
+  'copyright/text': `Layout por CipSoft GmbH`,
+  'copyright/createdBy': `Criado por `,
+  // * Copyright Translation */
 };
 
 export default ptBr;

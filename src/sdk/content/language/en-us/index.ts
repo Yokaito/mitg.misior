@@ -34,6 +34,11 @@ const enUs = {
   'notFound/text': `Sorry, but the page you are looking for was either not found or does not exist.
   Try refreshing the page or click the button below to go back to the Homepage.`,
   // * Not Found Translation */
+  // * Copyright Translation */
+  'copyright/title': `Copyright by Misior. All rights reserved.`,
+  'copyright/text': `Layout by CipSoft GmbH`,
+  'copyright/createdBy': `Created by `,
+  // * Copyright Translation */
 };
 
 export default enUs;
