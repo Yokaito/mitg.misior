@@ -3,11 +3,16 @@ import { Controller } from '../../protocols';
 
 export class BoostedCreatureController implements Controller {
   async handle(): Promise<any> {
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const boostedCreature = await prisma.boosted_creature.findMany();
 
+    if (!boostedCreature) {
+      return {
+        raceid: 796,
+      };
+    }
+
     return {
-      raceid: 796,
+      raceid: parseInt(boostedCreature[0].raceid),
     };
   }
 }
