@@ -24,11 +24,11 @@ export const MenuBox = () => {
                 icon={item.icon}
                 initiallyOpen={item.initiallyOpen}
               >
-                {item.subItems.map((subItem, index) => {
+                {item.subItems.map((subItem, subItemIndex) => {
                   return (
                     <MenuSubItem
                       parentName={item.text}
-                      key={index}
+                      key={subItemIndex}
                       text={subItem.title}
                       href={subItem.href}
                     />
