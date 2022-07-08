@@ -28,7 +28,7 @@ type MenuSubItemBorder = {
 
 export const MenuSubItemBorder = styled.div<MenuSubItemBorder>`
   left: ${({ right }) => (right ? `unset` : `-3.5px`)};
-  right: ${({ right }) => (right ? `-3.5px` : `unset`)};
+  right: ${({ right }) => (right ? `-3px` : `unset`)};
   position: absolute;
   background: ${`url(${Chain.src})`};
   background-repeat: repeat-y;
