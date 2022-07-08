@@ -11,11 +11,6 @@ import Joi from 'joi';
 import { TwoFactorAdapter } from '@/sdk/api/infra/authenticator';
 import env from '@/sdk/environment';
 
-/**
- *  TODO - Add documentation
- *  TODO - Make source canary use secret code inside database to match when gameWorldAuthenticator calls
- */
-
 export class LoginClientController implements Controller {
   async handle(request: LoginClientControllerSpace.Request): Promise<any> {
     const { value, error } = LoginClientControllerSchema.validate(request);
