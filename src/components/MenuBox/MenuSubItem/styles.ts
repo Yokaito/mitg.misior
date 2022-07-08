@@ -22,11 +22,11 @@ export const MenuSubItemContent = styled.div`
   width: 100%;
 `;
 
-type MenuSubItemBorder = {
+type MenuSubItemBorderProps = {
   right?: boolean;
 };
 
-export const MenuSubItemBorder = styled.div<MenuSubItemBorder>`
+export const MenuSubItemBorder = styled.div<MenuSubItemBorderProps>`
   left: ${({ right }) => (right ? `unset` : `-3.5px`)};
   right: ${({ right }) => (right ? `-3px` : `unset`)};
   position: absolute;
