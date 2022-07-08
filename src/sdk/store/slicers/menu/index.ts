@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { HYDRATE } from 'next-redux-wrapper';
 import { AppState } from '../..';
-import { initialState, MenuItem } from './initialState';
+import { initialState, MenuItem } from './initial.state';
 
 type SetInitiallyOpen = {
   payload: {
