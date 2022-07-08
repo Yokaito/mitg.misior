@@ -18,8 +18,8 @@ export const menuSlicer = createSlice({
       const { initiallyOpen, text } = action.payload;
 
       state.forEach((item) => {
-        if (item.text === text) {
-          item.initiallyOpen = initiallyOpen;
+        if (item.initiallyOpen) {
+          item.initiallyOpen = false;
         }
       });
 
