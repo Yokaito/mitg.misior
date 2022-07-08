@@ -1,5 +1,5 @@
 import Image, { StaticImageData } from 'next/image';
-import { FC, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import * as S from './styles';
 import MenuIconDefault from '@/assets/images/shared/menu/news-menu.gif';
 import { motion } from 'framer-motion';
@@ -46,6 +46,10 @@ export const MenuItem: FC<MenuItemProps> = ({
 }) => {
   const [isOpen, setIsOpen] = useState(initiallyOpen);
 
+  useEffect(() => {
+    setIsOpen(initiallyOpen);
+  }, [initiallyOpen]);
+
   return (
     <>
       <S.MenuItemWrapper onClick={() => setIsOpen(!isOpen)}>
@@ -58,7 +62,7 @@ export const MenuItem: FC<MenuItemProps> = ({
         </S.MenuItemContent>
       </S.MenuItemWrapper>
       <S.MenuItemSubItemsWrapper
-        initial={false}
+        initial={initiallyOpen}
         animate={isOpen ? `open` : `closed`}
         variants={MenuSubItensMotionConfigs}
       >

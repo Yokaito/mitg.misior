@@ -1,7 +1,9 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { FC } from 'react';
+import { FC, useEffect, useLayoutEffect } from 'react';
+import { useStore } from 'react-redux';
 import * as S from './styles';
+import { setInitiallyOpen } from '@/sdk/store/slicers';
 
 const SubItemMotionConfigs = {
   open: {
@@ -23,15 +25,25 @@ const SubItemMotionConfigs = {
 interface MenuSubItemProps {
   text: string;
   href?: string;
+  parentName: string;
 }
 
 export const MenuSubItem: FC<MenuSubItemProps> = ({
   text = `Default Item`,
   href = `/`,
+  parentName,
 }) => {
   const router = useRouter();
+  const store = useStore();
 
   const isActive = router.pathname === href;
+
+  useEffect(() => {
+    if (router.pathname !== href) return;
+
+    store.dispatch(setInitiallyOpen({ text: parentName, initiallyOpen: true }));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <S.MenuSubItemWrapper variants={SubItemMotionConfigs}>

@@ -1,9 +1,12 @@
 import { configureStore, ThunkAction } from '@reduxjs/toolkit';
 import { Action } from 'redux';
 import { createWrapper } from 'next-redux-wrapper';
+import { menuSlicer } from './slicers';
 
 const store = configureStore({
-  reducer: {},
+  reducer: {
+    [menuSlicer.name]: menuSlicer.reducer,
+  },
   devTools: true,
 });
 
