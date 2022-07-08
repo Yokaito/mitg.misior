@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { FC, useEffect, useLayoutEffect } from 'react';
+import { FC, useEffect } from 'react';
 import { useStore } from 'react-redux';
 import * as S from './styles';
 import { setInitiallyOpen } from '@/sdk/store/slicers';
