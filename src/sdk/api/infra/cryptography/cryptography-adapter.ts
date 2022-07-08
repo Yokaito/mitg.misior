@@ -6,8 +6,8 @@ export const CryptographyAdapter =
       return sha1(password);
     };
 
-    const compare = (password: string, hash: string) => {
-      return sha1(password) === hash;
+    const compare = (password: string, encryptedPassword: string) => {
+      return sha1(password) === encryptedPassword;
     };
 
     return {
@@ -19,6 +19,6 @@ export const CryptographyAdapter =
 namespace CryptographyAdapterSpace {
   export type CryptographyAdapter = {
     hash: (password: string) => string;
-    compare: (password: string, hash: string) => boolean;
+    compare: (password: string, encryptedPassword: string) => boolean;
   };
 }
