@@ -17,13 +17,13 @@ export const menuSlicer = createSlice({
     setInitiallyOpen: (state: MenuItem[], action: SetInitiallyOpen) => {
       const { initiallyOpen, text } = action.payload;
 
-      state.find((item) => {
-        if (item.initiallyOpen) {
-          item.initiallyOpen = false;
+      state.forEach((item) => {
+        if (item.text === text) {
+          item.initiallyOpen = initiallyOpen;
         }
       });
 
-      state.find((item) => {
+      state.forEach((item) => {
         if (item.text === text) {
           item.initiallyOpen = initiallyOpen;
         }
