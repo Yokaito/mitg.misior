@@ -5,7 +5,8 @@ import Chain from '@/assets/images/borders/chain.gif';
 export const MenuSubItemWrapper = styled(motion.li)`
   display: flex;
   background: ${({ theme }) => theme.backgrounds.octonary.default};
-  height: 21px;
+  height: max-content;
+  min-height: 21px;
   border-bottom: 1px solid ${({ theme }) => theme.borders.quinary.default};
 
   :hover {
@@ -33,7 +34,7 @@ export const MenuSubItemBorder = styled.div<MenuSubItemBorderProps>`
   background: ${`url(${Chain.src})`};
   background-repeat: repeat-y;
 
-  height: 21px;
+  height: 24px;
   width: 7px;
 `;
 

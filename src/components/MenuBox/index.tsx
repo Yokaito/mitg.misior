@@ -3,11 +3,19 @@ import Image from 'next/image';
 import BoxBorder from '@/assets/images/general/box-top.gif';
 import { MenuItem } from './MenuItem';
 import { MenuSubItem } from './MenuSubItem';
-import { useSelector } from 'react-redux';
-import { getMenu } from '@/sdk/store/slicers';
+import { useSelector, useStore } from 'react-redux';
+import { getMenu, changeLanguageMenu } from '@/sdk/store/slicers';
+import useTranslation from '@/sdk/hooks/useTranslation';
+import { useEffect } from 'react';
 
 export const MenuBox = () => {
+  const store = useStore();
   const menu = useSelector(getMenu());
+  const { locale } = useTranslation();
+
+  useEffect(() => {
+    store.dispatch(changeLanguageMenu(locale));
+  }, [locale, store]);
 
   return (
     <>
