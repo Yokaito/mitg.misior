@@ -9,7 +9,7 @@ export const SectionWrapper = styled.section`
   flex-direction: column;
   border-right: 2px solid ${({ theme }) => theme.borders.primary.default};
   border-left: 2px solid ${({ theme }) => theme.borders.primary.default};
-  background-color: #debb9d;
+  background-color: ${({ theme }) => theme.backgrounds.secondary.default};
   z-index: 0;
 `;
 
