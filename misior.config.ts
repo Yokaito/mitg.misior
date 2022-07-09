@@ -17,7 +17,7 @@ interface MisiorWebProps {
 }
 
 export const misiorWeb: MisiorWebProps = {
-  otName: `Misior`,
+  otName: `Misior Test pull Request`,
   timezone: `America/Sao_Paulo`,
   domain: `https://misior.mitg.dev/`,
   ga_tracking_id: `G-MGCRHDCYFK`,
