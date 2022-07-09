@@ -10,8 +10,8 @@ export const TitleBackgroundBarWrapper = styled.section`
   height: max-content;
   display: flex;
   flex-direction: column;
-  border-right: 2px solid ${({ theme }) => theme.borders.primary.default};
-  border-left: 2px solid ${({ theme }) => theme.borders.primary.default};
+  border-right: 1px solid ${({ theme }) => theme.borders.primary.default};
+  border-left: 1px solid ${({ theme }) => theme.borders.primary.default};
   background-color: ${({ theme }) => theme.backgrounds.secondary.default};
   z-index: 0;
 `;
@@ -55,6 +55,8 @@ export interface BackgroundBarProps {
 }
 
 export const BackgroundBar = styled.div<BackgroundBarProps>`
+  display: flex;
+  align-items: center;
   height: ${({ typeBackground }) =>
     typeBackground
       ? Backgrounds[typeBackground].height

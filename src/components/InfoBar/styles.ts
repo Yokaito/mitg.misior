@@ -7,6 +7,7 @@ export const InfoBarWrapper = styled.div`
   flex-direction: row;
   padding: 0 1rem;
   height: 100%;
+  width: 100%;
 `;
 
 export const InfoBarSocialWrapper = styled.div``;
