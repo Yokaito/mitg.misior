@@ -71,28 +71,6 @@ jobs:
               `;
             }).join('---');
             core.setOutput("comment", comment);
-      - name: Format budget result
-        id: budget_result
-        if: ${{ always() }}
-        uses: actions/github-script@v4
-        with:
-          github-token: ${{secrets.GITHUB_TOKEN}}
-          script: |
-            const assertions = ${{ steps.lighthouse_audit.outputs.assertionResults }};
-            if (!assertions.length) {
-              core.setOutput("comment", '✅ Budget met, nothing to see here');
-            } else {
-              const comment = assertions.map((result) => {
-                return `
-            ❌ **${result.auditProperty || ''}.${result.auditId}** failure on [${result.url}](${result.url})
-            *${result.auditTitle}* - [docs](${result.auditDocumentationLink})
-            | Actual | Expected |
-            | --- | --- |
-            | ${result.actual} | ${result.operator} ${result.expected} |
-            `;
-              }).join('---');
-              core.setOutput("comment", comment);
-            }
       - name: Add Lighthouse comment to PR
         id: lighthouse_comment_to_pr
         if: ${{ always() }}
@@ -103,13 +81,3 @@ jobs:
           header: lighthouse
           message: |
             ${{ steps.lighthouse_result.outputs.comment }}
-      - name: Add Budget comment to PR
-        id: budget_comment_to_pr
-        if: ${{ always() }}
-        uses: marocchino/sticky-pull-request-comment@v1
-        with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          number: ${{ github.event.pull_request.number }}
-          header: budget
-          message: |
-            ${{ steps.budget_result.outputs.comment }}
