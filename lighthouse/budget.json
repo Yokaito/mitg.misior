@@ -16,7 +16,7 @@
       },
       {
         "metric": "total-blocking-time",
-        "budget": 200
+        "budget": 900
       },
       {
         "metric": "largest-contentful-paint",
