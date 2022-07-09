@@ -27,6 +27,7 @@ const ptBr = {
   'createAccount/button': `Criar Conta`,
   'createAccount/accountNameIsAlreadyInUse': `Nome da conta já está em uso`,
   'createAccount/emailIsAlreadyInUse': `Email já está em uso`,
+  'createAccount/success': `Conta criada com sucesso`,
   // * Create Account Translation */
   // * Not Found Translation */
   'notFound/section': `Não Encontrado`,

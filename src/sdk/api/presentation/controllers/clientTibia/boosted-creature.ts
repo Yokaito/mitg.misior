@@ -12,7 +12,7 @@ export class BoostedCreatureController implements Controller {
     }
 
     return {
-      raceid: parseInt(boostedCreature[0].raceid),
+      raceid: parseInt(boostedCreature[0]?.raceid),
     };
   }
 }

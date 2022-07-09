@@ -9,6 +9,7 @@ import {
   EmailIsAlreadyInUseError,
   NameIsAlreadyInUseError,
 } from '../../errors';
+import { CreateAccountUseCase } from '@/sdk/api/data/usecases';
 
 export class CreateAccountController implements Controller {
   async handle(
@@ -32,6 +33,12 @@ export class CreateAccountController implements Controller {
       if (accountName) {
         return badRequest(new NameIsAlreadyInUseError(`accountName`));
       }
+
+      await CreateAccountUseCase({
+        email: value.email,
+        name: value.accountName,
+        password: value.password,
+      });
 
       return noContent();
     } catch (error: any) {

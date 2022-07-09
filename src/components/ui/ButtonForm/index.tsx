@@ -3,12 +3,21 @@ import * as S from './styles';
 
 export type ButtonFormProps = {
   extend?: boolean;
+  isLoading?: boolean;
+  disabled?: boolean;
 };
 
-export const ButtonForm: FC<ButtonFormProps> = ({ extend, children }) => {
+export const ButtonForm: FC<ButtonFormProps> = ({
+  extend,
+  children,
+  isLoading = false,
+  disabled = false,
+}) => {
   return (
-    <S.ButtonFormWrapper extend={extend} type="submit">
-      <S.ButtonFormText as="span">{children}</S.ButtonFormText>
+    <S.ButtonFormWrapper extend={extend} type="submit" disabled={disabled}>
+      <S.ButtonFormText as="span">
+        {isLoading ? <S.IconLoading height={16} speed={2} /> : children}
+      </S.ButtonFormText>
     </S.ButtonFormWrapper>
   );
 };

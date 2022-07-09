@@ -9,6 +9,8 @@ import ButtonForm from '../ui/ButtonForm';
 import { otConfigs } from '@/misior';
 import { api } from '@/sdk/lib/swr';
 import { useRouter } from 'next/router';
+import { toast } from 'react-toastify';
+import { useState } from 'react';
 
 type AccountCreate = {
   accountName: string;
@@ -29,6 +31,7 @@ const initialValues: AccountCreate = {
 export const CreateAccountForm = () => {
   const { t } = useTranslation();
   const router = useRouter();
+  const [formLoading, setFormLoading] = useState(false);
 
   const CreateAccountSchema = Yup.object().shape({
     accountName: Yup.string()
@@ -63,11 +66,21 @@ export const CreateAccountForm = () => {
     if (!formik.isValid) return;
 
     try {
+      setFormLoading(true);
+
       const data = await api.post(`/api/account/create`, values);
+
       if (data.status < 300) {
-        router.push(`/login`);
+        toast.success(t(`createAccount/success`), {
+          position: `bottom-right`,
+          autoClose: 1000,
+          onClose: () => {
+            router.push(`/login`);
+          },
+        });
       }
     } catch (error: any) {
+      setFormLoading(false);
       if (`paramName` in error?.response?.data?.error) {
         const paramNameResponse = error.response.data.error.paramName;
 
@@ -149,7 +162,9 @@ export const CreateAccountForm = () => {
           </InnerContainer>
           <InnerContainer>
             <S.FormikButtonSubmitWrapper>
-              <ButtonForm extend>{t(`createAccount/button`)}</ButtonForm>
+              <ButtonForm extend disabled={formLoading} isLoading={formLoading}>
+                {t(`createAccount/button`)}
+              </ButtonForm>
             </S.FormikButtonSubmitWrapper>
           </InnerContainer>
         </S.FormikFormStyled>

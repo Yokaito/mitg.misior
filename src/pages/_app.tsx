@@ -3,6 +3,8 @@ import '@/styles/fonts.css';
 import '@/styles/resets/reset.css';
 import '@/styles/resets/_modern-normalize.css';
 import 'react-loading-skeleton/dist/skeleton.css';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { ThemeProvider } from 'styled-components';
 import { defaultTheme } from '@/styles/theme';
 import LanguageProvider from '@/sdk/contexts/LanguageContext';
@@ -31,6 +33,17 @@ export const MyApp = ({
   return (
     <ThemeProvider theme={defaultTheme}>
       <SessionProvider session={session}>
+        <ToastContainer
+          position="bottom-center"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
         <LanguageProvider>
           <Component {...pageProps} key={router.route} />
           <Analytics />

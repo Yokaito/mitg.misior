@@ -14,6 +14,7 @@ interface MisiorWebProps {
   timezone: string;
   domain: string;
   ga_tracking_id: string;
+  freePremiumDaysAfterRegistration: number;
 }
 
 export const misiorWeb: MisiorWebProps = {
@@ -21,6 +22,7 @@ export const misiorWeb: MisiorWebProps = {
   timezone: `America/Sao_Paulo`,
   domain: `https://misior.mitg.dev/`,
   ga_tracking_id: `G-MGCRHDCYFK`,
+  freePremiumDaysAfterRegistration: 3,
 };
 
 export const otConfigs = {

@@ -27,6 +27,7 @@ const enUs = {
   'createAccount/button': `Create Account`,
   'createAccount/accountNameIsAlreadyInUse': `Account Name is already in use`,
   'createAccount/emailIsAlreadyInUse': `Email is already in use`,
+  'createAccount/success': `Account created successfully`,
   // * Create Account Translation */
   // * Not Found Translation */
   'notFound/section': `Not Found`,
