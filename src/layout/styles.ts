@@ -16,7 +16,7 @@ export const LayoutWrapper = styled.div`
       20px,
       auto
     );
-  grid-template-rows: 8.5rem max-content 8rem;
+  grid-template-rows: 8.5rem max-content auto;
   grid-template-areas:
     'HD HD HD HD HD'
     'LB MNL MC MNR RB'

@@ -1,5 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
-import Background from '@/assets/images/background/background.webp';
+import Background from '@/assets/images/background/background-3.webp';
 
 export default createGlobalStyle`
 
@@ -45,12 +45,26 @@ export default createGlobalStyle`
 
   html, body, #root {
     height: 100vh;
-    background-color: ${({ theme }) => theme.backgrounds.root.default};
-    background-image: ${`url(${Background.src})`};
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center top;
+
     font-size: ${({ theme }) => theme.typography.baseFontSize};
+
+    ::before {
+      content: "";
+      position: fixed;
+      left: 0;
+      right: 0;
+      z-index: -1;
+      display: block;
+      background-color: ${({ theme }) => theme.backgrounds.root.default};
+      background-image: ${`url(${Background.src})`};
+      background-size:cover;
+      width: 100%;
+      height: 100%;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: center top;
+      filter: grayscale(0.3);
+    }
   }
 
   *, button, input {
