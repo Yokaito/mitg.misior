@@ -25,7 +25,7 @@ export const misiorWeb: MisiorWebProps = {
 
 export const otConfigs = {
   server: {
-    worldName: `Gardebra Test`,
+    worldName: `Gardebra Test Test`,
     ip: `35.247.229.151`,
     loginProtocolPort: 7171,
     gameProtocolPort: 7172,
