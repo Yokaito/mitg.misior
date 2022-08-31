@@ -46,7 +46,7 @@
     "formik": "2.2.9",
     "framer-motion": "6.4.3",
     "joi": "17.6.0",
-    "moment-timezone": "0.5.34",
+    "moment-timezone": "0.5.35",
     "next": "12.1.6",
     "next-auth": "4.9.0",
     "next-pwa": "5.5.4",
